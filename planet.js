@@ -107,12 +107,15 @@ function displayBody(body){
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.clearRect(0, 0, c.width, c.height);
-    if (radius*10 < earthRadius){
+    if (radius*6.4 < earthRadius){
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.arc(150, 300, 350, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
+        ctx.fillStyle = "black";
+        ctx.font = "30px Arial";
+        ctx.fillText("Earth (for scale)", 100, 450)
 
         var rad = 1+(350*radius/earthRadius);
 
@@ -131,8 +134,10 @@ function displayBody(body){
         ctx.arc(500-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
+        ctx.fillStyle = "black";
+        ctx.font = "30px Arial";
+        ctx.fillText("Earth (for scale)", Math.max(400-(150*earthRadius/radius), 30), 450)
 
-        //axialTilt = 0;
         var rad = 150;
 
         ctx.beginPath();
