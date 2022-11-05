@@ -32,6 +32,7 @@ function displayBody(body){
     let discoveredString;
     let ratio;
     let vol_string;
+    let radius_string;
 
     if(radius>earthRadius){
         ratio=(radius/earthRadius)**3;
@@ -56,6 +57,9 @@ function displayBody(body){
     }
 
     document.getElementById('volumeComparison').textContent = vol_string;
+    radius_string= 'The mean radius of '+name+' is '+Math.round(radius)+' km.';
+    document.getElementById('radius').textContent = radius_string;
+
 
 
 
