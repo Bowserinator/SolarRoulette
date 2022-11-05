@@ -30,6 +30,32 @@ function displayBody(body){
     let radius = body.meanRadius;
     let earthRadius = 6371.0084;
     let discoveredString;
+    let ratio;
+    let vol_string;
+
+    if(radius>earthRadius){
+        ratio=(radius/earthRadius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio);
+        vol_string='You can fit '+ratio+' Earth in '+name;
+        
+    }
+    else if(radius<earthRadius){
+        ratio=(earthRadius/radius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio);
+
+        vol_string='You can fit '+ratio+' '+name +' in  Earth';
+    }
+    else{
+        ratio=(earthRadius/radius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio);
+
+        vol_string='You can fit '+ratio+' '+name +' in  Earth';
+    }
+
+    document.getElementById('volumeComparison').textContent = vol_string;
 
 
 
