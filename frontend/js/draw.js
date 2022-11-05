@@ -157,6 +157,7 @@ function createPlanet(size, img, override=[-1, -1]) {
     planetMesh.rotation.y = ([{ size: 0 }].concat(planets)).map(p => p.size + 0.1).reduce((a, b) => a + b);
     planetMesh.position.y = 300 - height * 0.2;
     scene.add(planetMesh);
+
     planets.push({
         mesh: planetMesh,
         size: offset
@@ -182,7 +183,6 @@ createPlanet(1188, 'pluto.png');
 
 
 // Rendering
-
 let startTime = Date.now();
 
 function animate() {
