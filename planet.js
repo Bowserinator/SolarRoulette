@@ -136,6 +136,10 @@ function displayBody(body){
         ctx.arc(800, 300, rad, 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.font = "30px Arial";
+        ctx.fillText(name, 800-(8*name.length), 400)
     } else {
         ctx.lineWidth = 4;
         ctx.beginPath();
@@ -144,7 +148,7 @@ function displayBody(body){
         ctx.fill();
         ctx.fillStyle = "black";
         ctx.font = "30px Arial";
-        ctx.fillText("Earth (for scale)", Math.max(400-(150*earthRadius/radius), 30), 400)
+        ctx.fillText("Earth (for scale)", Math.max(394-(150*earthRadius/radius), 30), 400)
 
         var rad = 150;
 
@@ -158,6 +162,10 @@ function displayBody(body){
         ctx.arc(800, 300, rad, 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.font = "30px Arial";
+        ctx.fillText(name, 800-(8*name.length), 400)
     }
 }
 
