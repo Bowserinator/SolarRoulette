@@ -30,11 +30,48 @@ function displayBody(body){
     let radius = body.meanRadius;
     let earthRadius = 6371.0084;
     let discoveredString;
+    let ratio;
+    let vol_string;
+    let radius_string;
+
+    if(radius>earthRadius){
+        ratio=(radius/earthRadius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio);
+        vol_string='You can fit '+ratio+' Earth in '+name;
+        
+    }
+    else if(radius<earthRadius){
+        ratio=(earthRadius/radius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio);
+
+        vol_string='You can fit '+ratio+' '+name +' in  Earth';
+    }
+    else{
+        ratio=(earthRadius/radius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio);
+
+        vol_string='You can fit '+ratio+' '+name +' in  Earth';
+    }
+
+    document.getElementById('volumeComparison').textContent = vol_string;
+    radius_string= 'The mean radius of '+name+' is '+Math.round(radius)+' km.';
+    document.getElementById('radius').textContent = radius_string;
 
 
-    if (body.discoveredBy!=null && body.discoveryDate!=null){
+
+
+
+    if (body.discoveredBy!='' && body.discoveryDate!=''){
+
         discoveredBy=body.discoveredBy;
         discoveryDate=body.discoveryDate;
+        console.log('hhhhh');
+        console.log(discoveredBy);
+        console.log(discoveryDate);
+        console.log('hhhhh');
         discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy;
     }
 
