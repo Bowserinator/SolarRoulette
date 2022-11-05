@@ -1,2 +1,2 @@
-- Neatify code
-- adjust zoom speed?
+
+- text labels
