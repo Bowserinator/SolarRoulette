@@ -32,9 +32,16 @@ function displayBody(body){
     let discoveredString;
 
 
-    if (body.discoveredBy!=null && body.discoveryDate!=null){
+
+
+    if (body.discoveredBy!='' && body.discoveryDate!=''){
+
         discoveredBy=body.discoveredBy;
         discoveryDate=body.discoveryDate;
+        console.log('hhhhh');
+        console.log(discoveredBy);
+        console.log(discoveryDate);
+        console.log('hhhhh');
         discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy;
     }
 
