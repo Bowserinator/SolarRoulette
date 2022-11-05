@@ -3,8 +3,6 @@ async function getData(){
     data_url='https://api.le-systeme-solaire.net/rest/bodies/'
     let data = await fetch(data_url);
     let json_data = await data.json();
-    console.log(json_data);
-    console.log();
     bodies = json_data.bodies;
     planets = [];
     bodies.forEach(body => {
@@ -20,11 +18,10 @@ getData().catch(error =>{
 
 function displayBody(body){
     console.log(i);
-    let name = planet.englishName;
+    let name = body.englishName;
     let discoveredBy;
     let discoveryDate;
-    let bodyType=planet.bodyType;
-    bodyType=bodyType.toLowerCase();
+    let bodyType=body.bodyType.toLowerCase();
     let bodyTypeString='';
     let mass_string;
     let massValue;
@@ -34,9 +31,9 @@ function displayBody(body){
     let discoveredString;
 
 
-    if (planet.discoveredBy!=null && planet.discoveryDate!=null){
-        discoveredBy=planet.discoveredBy;
-        discoveryDate=planet.discoveryDate;
+    if (body.discoveredBy!=null && body.discoveryDate!=null){
+        discoveredBy=body.discoveredBy;
+        discoveryDate=body.discoveryDate;
         discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy;
     }
 
