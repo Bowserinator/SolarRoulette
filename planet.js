@@ -6,12 +6,21 @@ async function getData(){
     bodies = json_data.bodies;
     planets = [];
     moons = [];
+    dwarfs = [];
+    asteroids = [];
+    comets = [];
     bodies.forEach(body => {
         if (body.isPlanet) {
             planets.splice(planets.length, 0, body);
         }
         else if (body.bodyType == "Moon") {
             moons.splice(moons.length, 0, body);
+        } else if (body.bodyType == "Asteroid") {
+            asteroids.splice(asteroids.length, 0, body);
+        } else if (body.bodyType == "Comet") {
+            comets.splice(comets.length, 0, body);
+        } else if (body.bodyType == "Dwarf Planet") {
+            dwarfs.splice(dwarfs.length, 0, body);
         }
     });
 
@@ -223,6 +232,39 @@ function getRandomMoon(){
     while (body.id == prevBody.id) {
         i=Math.floor(Math.random() * moons.length);
         body = moons[i];
+    }
+    console.log(i);
+    displayBody(body);
+}
+
+function getRandomAsteroid(){
+    i=Math.floor(Math.random() * asteroids.length);
+    let body = asteroids[i];
+    while (body.id == prevBody.id) {
+        i=Math.floor(Math.random() * asteroids.length);
+        body = asteroids[i];
+    }
+    console.log(i);
+    displayBody(body);
+}
+
+function getRandomComet(){
+    i=Math.floor(Math.random() * comets.length);
+    let body = comets[i];
+    while (body.id == prevBody.id) {
+        i=Math.floor(Math.random() * comets.length);
+        body = comets[i];
+    }
+    console.log(i);
+    displayBody(body);
+}
+
+function getRandomDwarf(){
+    i=Math.floor(Math.random() * dwarfs.length);
+    let body = dwarfs[i];
+    while (body.id == prevBody.id) {
+        i=Math.floor(Math.random() * dwarfs.length);
+        body = dwarfs[i];
     }
     console.log(i);
     displayBody(body);
