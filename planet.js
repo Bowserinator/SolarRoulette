@@ -40,17 +40,17 @@ async function getData(){
         ctx.fill();
 
         ctx.beginPath();
-        ctx.arc(600, 300, 1+(350*radius/earthRadius), 0, 2 * Math.PI);
+        ctx.arc(800, 300, 1+(350*radius/earthRadius), 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
     } else {
         ctx.beginPath();
-        ctx.arc(300-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
+        ctx.arc(500-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
 
         ctx.beginPath();
-        ctx.arc(600, 300, 150, 0, 2 * Math.PI);
+        ctx.arc(800, 300, 150, 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
     }
