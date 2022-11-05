@@ -126,7 +126,7 @@ function displayBody(body){
     if (radius*6.4 < earthRadius){
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.arc(150, 300, 350, 0, 2 * Math.PI);
+        ctx.arc(50, 300, 350, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
         ctx.fillStyle = "white";
@@ -137,12 +137,12 @@ function displayBody(body){
 
         ctx.beginPath();
         ctx.strokeStyle = "white";
-        ctx.moveTo((800)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
-        ctx.lineTo((800)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
+        ctx.moveTo((700)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
+        ctx.lineTo((700)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(800, 300, rad, 0, 2 * Math.PI);
+        ctx.arc(700, 300, rad, 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
 
@@ -152,7 +152,7 @@ function displayBody(body){
     } else {
         ctx.lineWidth = 4;
         ctx.beginPath();
-        ctx.arc(500-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
+        ctx.arc(400-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
         ctx.fillStyle = "white";
@@ -163,13 +163,13 @@ function displayBody(body){
 
         ctx.beginPath();
         ctx.strokeStyle = "white";
-        ctx.moveTo((800)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
-        ctx.lineTo((800)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
+        ctx.moveTo((700)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
+        ctx.lineTo((700)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
         ctx.stroke();
         console.log(Math.sin(axialTilt*Math.PI/180));
 
         ctx.beginPath();
-        ctx.arc(800, 300, rad, 0, 2 * Math.PI);
+        ctx.arc(700, 300, rad, 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
 
