@@ -10,11 +10,26 @@ async function getData(){
     console.log(i);
     let planet = planets[i];
     let name = planet.englishName;
+    let discoveredBy;
+    let discoveryDate;
+    let bodyType=planet.bodyType;
+    bodyType=bodyType.toLowerCase();
+    let bodyTypeString;
+    // console.log(bodyType);
     let mass_string;
     let massValue;
     let massExponent;
     let radius = planet.meanRadius;
     let earthRadius = 6371.0084;
+    
+
+    if(bodyType[0]=='a'){
+        bodyTypeString=' an '+ bodyType;
+    }else{
+        bodyTypeString=' a '+ bodyType;
+    }
+
+    console.log(bodyTypeString);
 
     if (planet.mass == null){
         console.log('the mass in null');
@@ -29,6 +44,7 @@ async function getData(){
     
     document.getElementById('name').textContent = name;
     document.getElementById('mass').textContent = mass_string ;
+    document.getElementById('bodyType').textContent = bodyTypeString ;
 
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
