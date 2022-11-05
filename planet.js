@@ -32,6 +32,7 @@ async function getData(){
 
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height);
     if (radius*10 < earthRadius){
         ctx.beginPath();
         ctx.arc(100, 300, 400, 0, 2 * Math.PI);
