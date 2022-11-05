@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!-- TODO title, meta -->
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.146.0/build/three.module.js",
+                    "OrbitControls": "https://unpkg.com/three@0.146.0/examples/jsm/controls/OrbitControls.js"
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="css/main.css">
+
+        <script type="x-shader/x-fragment" id="sky-frag">
+            varying vec2 vUv;
+            float d, rate;
+            uniform float rand1;
+            uniform sampler2D texture;
+            void main() {
+                gl_FragColor = texture2D(texture, vUv);
+            
+                rate = mod(vUv.x / 20.0 + vUv.y / 20.0, 5.0);
+                d = 10.0 + 8.0 * sin(rate * (rand1 + vUv.x + vUv.y));
+                gl_FragColor.r = clamp(1.0 - 1.5 / (1.0 + exp(d * (gl_FragColor.r - 0.5))), 0.0, 1.0);
+                gl_FragColor.g = clamp(1.0 - 1.5 / (1.0 + exp(d * (gl_FragColor.g - 0.5))), 0.0, 1.0);
+                gl_FragColor.b = clamp(1.0 - 1.5 / (1.0 + exp(d * (gl_FragColor.b - 0.5))), 0.0, 1.0);
+            }
+        </script>
+
+        <script type="x-shader/x-fragment" id="sky-vert">
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_PointSize = 8.0;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        </script>
+    </head>
+    <body>
+
+        <script src="js/draw.js" type="module"></script>
+    </body>
+</html>
