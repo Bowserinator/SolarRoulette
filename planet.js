@@ -11,8 +11,9 @@ async function getData(){
         }
     });
 
-    prevBody = bodies[3];
+    prevBody = bodies[243];
     getRandomPlanet();
+    //getBody("earth");
 }
 getData().catch(error =>{
     console.log('something is wrong');
@@ -21,7 +22,6 @@ getData().catch(error =>{
 
 function displayBody(body){
     prevBody = body;
-    console.log(i);
     let name = body.englishName;
     let discoveredBy;
     let discoveryDate;
@@ -173,7 +173,7 @@ function displayBody(body){
 function getRandomBody(){
     i=Math.floor(Math.random() * bodies.length);
     let body = bodies[i];
-    while (body.name == prevBody.name) {
+    while (body.id == prevBody.id) {
         i=Math.floor(Math.random() * bodies.length);
         body = bodies[i];
     }
@@ -184,10 +184,20 @@ function getRandomBody(){
 function getRandomPlanet(){
     i=Math.floor(Math.random() * planets.length);
     let planet = planets[i];
-    while (planet.name == prevBody.name) {
+    while (planet.id == prevBody.id) {
         i=Math.floor(Math.random() * planets.length);
         planet = planets[i];
     }
     console.log(i);
     displayBody(planet);
+}
+
+function getBody(bodyName) {
+    bodyName = bodyName.toLowerCase();
+    bodies.forEach(body => {
+        console.log(body.englishName.toLowerCase());
+        if (body.id.toLowerCase() == bodyName || body.englishName.toLowerCase() == bodyName || body.name.toLowerCase() == bodyName){
+            displayBody(body);
+        }
+    });
 }
