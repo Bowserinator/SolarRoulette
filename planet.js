@@ -19,12 +19,40 @@ getData().catch(error =>{
 });
 
 function displayBody(body){
-    let name = body.englishName;
+    console.log(i);
+    let name = planet.englishName;
+    let discoveredBy;
+    let discoveryDate;
+    let bodyType=planet.bodyType;
+    bodyType=bodyType.toLowerCase();
+    let bodyTypeString='';
     let mass_string;
     let massValue;
     let massExponent;
     let radius = body.meanRadius;
     let earthRadius = 6371.0084;
+    let discoveredString;
+
+
+    if (planet.discoveredBy!=null && planet.discoveryDate!=null){
+        discoveredBy=planet.discoveredBy;
+        discoveryDate=planet.discoveryDate;
+        discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy;
+    }
+
+    if(discoveredString!=''){
+        document.getElementById('discover').textContent = discoveredString;
+
+    }
+    
+
+    if(bodyType[0]=='a'){
+        bodyTypeString=' an '+ bodyType;
+    }else{
+        bodyTypeString=' a '+ bodyType;
+    }
+
+    console.log(bodyTypeString);
 
     if (body.mass == null){
         console.log('the mass in null');
@@ -39,6 +67,7 @@ function displayBody(body){
     
     document.getElementById('name').textContent = name;
     document.getElementById('mass').textContent = mass_string ;
+    document.getElementById('bodyType').textContent = bodyTypeString ;
 
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
