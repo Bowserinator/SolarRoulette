@@ -11,6 +11,7 @@ async function getData(){
         }
     });
 
+    prevBody = bodies[3];
     getRandomPlanet();
 }
 getData().catch(error =>{
@@ -19,6 +20,7 @@ getData().catch(error =>{
 });
 
 function displayBody(body){
+    prevBody = body;
     console.log(i);
     let name = body.englishName;
     let discoveredBy;
@@ -68,11 +70,6 @@ function displayBody(body){
         document.getElementById('radius').textContent = radius_string;
 
     }
-
-
-
-
-
 
     if (body.discoveredBy!='' && body.discoveryDate!=''){
 
@@ -175,14 +172,22 @@ function displayBody(body){
 
 function getRandomBody(){
     i=Math.floor(Math.random() * bodies.length);
-    console.log(i);
     let body = bodies[i];
+    while (body.name == prevBody.name) {
+        i=Math.floor(Math.random() * bodies.length);
+        body = bodies[i];
+    }
+    console.log(i);
     displayBody(body);
 }
 
 function getRandomPlanet(){
     i=Math.floor(Math.random() * planets.length);
-    console.log(i);
     let planet = planets[i];
+    while (planet.name == prevBody.name) {
+        i=Math.floor(Math.random() * planets.length);
+        planet = planets[i];
+    }
+    console.log(i);
     displayBody(planet);
 }
