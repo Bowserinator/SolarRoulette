@@ -24,18 +24,17 @@
     
             <h1 id="mass"></h1>
 
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span> 
-
-            <canvas id="myCanvas" width="1500" height="1500"></canvas>
+            <canvas id="myCanvas" width=1100% height=500%></canvas>
             
             <script>
                 var c = document.getElementById("myCanvas");
                 var ctx = c.getContext("2d");
                 ctx.beginPath();
-                ctx.arc(295, 250, 140, 0, 2 * Math.PI);
+                ctx.arc(495, 250, 140, 0, 2 * Math.PI);
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.arc(195, 250, 40, 0, 2 * Math.PI);
                 ctx.fill();
             </script>
 
