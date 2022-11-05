@@ -71,23 +71,41 @@ function displayBody(body){
     var ctx = c.getContext("2d");
     ctx.clearRect(0, 0, c.width, c.height);
     if (radius*10 < earthRadius){
+        ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.arc(150, 300, 350, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
 
+        var rad = 1+(350*radius/earthRadius);
+
         ctx.beginPath();
-        ctx.arc(800, 300, 1+(350*radius/earthRadius), 0, 2 * Math.PI);
+        ctx.moveTo((800)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
+        ctx.lineTo((800)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(800, 300, rad, 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
     } else {
+        ctx.lineWidth = 4;
         ctx.beginPath();
         ctx.arc(500-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
 
+        //axialTilt = 0;
+        var rad = 150;
+
         ctx.beginPath();
-        ctx.arc(800, 300, 150, 0, 2 * Math.PI);
+        ctx.moveTo((800)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
+        ctx.lineTo((800)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
+        ctx.stroke();
+        console.log(Math.sin(axialTilt*Math.PI/180));
+
+        ctx.beginPath();
+        ctx.arc(800, 300, rad, 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
     }
