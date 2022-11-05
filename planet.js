@@ -9,7 +9,7 @@ async function getData(){
     planets = [];
     bodies.forEach(body => {
         if (body.isPlanet) {
-            planets.splice(0, 0, body);
+            planets.splice(planets.length, 0, body);
         }
     });
 }
