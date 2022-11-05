@@ -9,29 +9,29 @@
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body class="bg-warning">
+    <body>
 
         <div class="container pt-5">
 
-            <h1 class="text-white bg-primary p-2">Hello welcome to Solar System App</h1>
+            <h1 class="bg-primary text-black p-2">Hello welcome to Solar System App</h1>
 
-            <button class="btn-primary btn-lg d-block" onclick="getRandomBody()">Click for random celestial body</button>
-            <button class="btn-primary btn-lg d-block" onclick="getRandomPlanet()">Click for random planet</button>
+            <button class="btn-danger btn-lg d-block" onclick="getRandomBody()">Click for random celestial body</button>
+            <button class="btn-danger btn-lg d-block" onclick="getRandomPlanet()">Click for random planet</button>
             
-            <h1 class="d-inline-block" id="name"></h1>
-            <h1 class="d-inline-block">is </h1>
-            <h1 class="d-inline-block" id="bodyType"></h1>
-            <h1 class="d-inline-block">.</h1>
+            <h1 class="d-inline-block text-white" id="name"></h1>
+            <h1 class="d-inline-block text-white">is </h1>
+            <h1 class="d-inline-block text-white" id="bodyType"></h1>
+            <h1 class="d-inline-block text-white">.</h1>
     
             
-            <h1> It has a mass of </h1>
+            <h1 class="d-inline-block text-white"> It has a mass of </h1>
     
-            <h1 id="mass"></h1>
+            <h1 class="d-inline-block text-white" id="mass"></h1>
 
-            <h1 id="discover"></h1>
+            <h1 class="d-inline-block text-white" id="discover"></h1>
 
-            <h1 id="radius"></h1>
-            <h1 id="volumeComparison"></h1>
+            <h1 class="d-inline-block text-white" id="radius"></h1>
+            <h1 class="d-inline-block text-white" id="volumeComparison"></h1>
 
 
             <canvas id="myCanvas" width=1120% height=600%></canvas>

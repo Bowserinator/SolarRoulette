@@ -121,13 +121,14 @@ function displayBody(body){
         ctx.arc(150, 300, 350, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "white";
         ctx.font = "30px Arial";
         ctx.fillText("Earth (for scale)", 100, 400)
 
         var rad = 1+(350*radius/earthRadius);
 
         ctx.beginPath();
+        ctx.strokeStyle = "white";
         ctx.moveTo((800)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
         ctx.lineTo((800)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
         ctx.stroke();
@@ -137,7 +138,7 @@ function displayBody(body){
         ctx.fillStyle = "brown";
         ctx.fill();
 
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "white";
         ctx.font = "30px Arial";
         ctx.fillText(name, 800-(8*name.length), 400)
     } else {
@@ -146,13 +147,14 @@ function displayBody(body){
         ctx.arc(500-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "white";
         ctx.font = "30px Arial";
         ctx.fillText("Earth (for scale)", Math.max(394-(150*earthRadius/radius), 30), 400)
 
         var rad = 150;
 
         ctx.beginPath();
+        ctx.strokeStyle = "white";
         ctx.moveTo((800)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
         ctx.lineTo((800)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
         ctx.stroke();
@@ -163,7 +165,7 @@ function displayBody(body){
         ctx.fillStyle = "brown";
         ctx.fill();
 
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "white";
         ctx.font = "30px Arial";
         ctx.fillText(name, 800-(8*name.length), 400)
     }
