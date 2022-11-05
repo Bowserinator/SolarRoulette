@@ -5,21 +5,31 @@ async function getData(){
     let json_data = await data.json();
     console.log(json_data);
     console.log();
-    let planets = json_data.bodies;
-    i=Math.floor(Math.random() * 275);
+    bodies = json_data.bodies;
+    planets = [];
+    bodies.forEach(body => {
+        if (body.isPlanet) {
+            planets.splice(0, 0, body);
+        }
+    });
+}
+getData().catch(error =>{
+    console.log('something is wrong');
+    console.log(error);
+});
+
+function displayBody(body){
     console.log(i);
-    let planet = planets[i];
     let name = planet.englishName;
     let discoveredBy;
     let discoveryDate;
     let bodyType=planet.bodyType;
     bodyType=bodyType.toLowerCase();
     let bodyTypeString='';
-    // console.log(bodyType);
     let mass_string;
     let massValue;
     let massExponent;
-    let radius = planet.meanRadius;
+    let radius = body.meanRadius;
     let earthRadius = 6371.0084;
     let discoveredString;
 
@@ -44,13 +54,13 @@ async function getData(){
 
     console.log(bodyTypeString);
 
-    if (planet.mass == null){
+    if (body.mass == null){
         console.log('the mass in null');
         mass_string=' The mass is unabilable.'
     }
     else{
-        massValue = planet.mass.massValue;
-        massExponent = planet.mass.massExponent;
+        massValue = body.mass.massValue;
+        massExponent = body.mass.massExponent;
         mass_string=massValue+' x 10^'+massExponent+'kg';
     }
     console.log(name);
@@ -69,24 +79,33 @@ async function getData(){
         ctx.fill();
 
         ctx.beginPath();
-        ctx.arc(600, 300, 1+(350*radius/earthRadius), 0, 2 * Math.PI);
+        ctx.arc(800, 300, 1+(350*radius/earthRadius), 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
     } else {
         ctx.beginPath();
-        ctx.arc(300-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
+        ctx.arc(500-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
 
         ctx.beginPath();
-        ctx.arc(600, 300, 150, 0, 2 * Math.PI);
+        ctx.arc(800, 300, 150, 0, 2 * Math.PI);
         ctx.fillStyle = "brown";
         ctx.fill();
     }
 }
-getData().catch(error =>{
-    console.log('something is wrong');
-    console.log(error);
-});
 
+function getRandomBody(){
+    i=Math.floor(Math.random() * bodies.length);
+    console.log(i);
+    let body = bodies[i];
+    displayBody(body);
+}
+
+function getRandomPlanet(){
+    i=Math.floor(Math.random() * planets.length);
+    console.log(i);
+    let planet = planets[i];
+    displayBody(planet);
+}
 
