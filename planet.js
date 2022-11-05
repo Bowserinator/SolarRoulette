@@ -72,7 +72,7 @@ function displayBody(body){
     ctx.clearRect(0, 0, c.width, c.height);
     if (radius*10 < earthRadius){
         ctx.beginPath();
-        ctx.arc(100, 300, 350, 0, 2 * Math.PI);
+        ctx.arc(150, 300, 350, 0, 2 * Math.PI);
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
 
