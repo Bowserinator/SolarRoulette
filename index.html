@@ -13,15 +13,21 @@
 
         <div class="container pt-5">
 
-            <h1 class="bg-primary text-black p-2">Hello welcome to Solar System App</h1>
+            <h1 class="text-light p-2 text-center">Solar System App</h1>
 
             <div class="btn-group">
                 <button class="btn-danger btn-lg d-block" onclick="getRandomBody()">Click for random celestial body</button>
                 <button class="btn-danger btn-lg d-block" onclick="getRandomPlanet()">Click for random planet</button>
-
-
             </div>
-            
+            <div >
+                <label for="city" class="form-label h2 text-light my-3">Enter a celestial body in our solar system:</label>
+                <form class="form-inline">
+                    <div class="d-flex">
+                        <input type="text" placeholder="e.g. Jupiter" class="input_text form-control" id="" name="city">
+                        <button id="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
 
             <div class="card" id="info_box">
 
