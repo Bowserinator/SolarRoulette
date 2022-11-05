@@ -5,11 +5,17 @@ async function getData(){
     let json_data = await data.json();
     bodies = json_data.bodies;
     planets = [];
+    moons = [];
     bodies.forEach(body => {
         if (body.isPlanet) {
             planets.splice(planets.length, 0, body);
         }
+        else if (body.bodyType == "Moon") {
+            moons.splice(moons.length, 0, body);
+        }
     });
+
+
 
     prevBody = bodies[243];
     getRandomPlanet();
@@ -199,6 +205,17 @@ function getRandomPlanet(){
     }
     console.log(i);
     displayBody(planet);
+}
+
+function getRandomMoon(){
+    i=Math.floor(Math.random() * moons.length);
+    let body = moons[i];
+    while (body.id == prevBody.id) {
+        i=Math.floor(Math.random() * moons.length);
+        body = moons[i];
+    }
+    console.log(i);
+    displayBody(body);
 }
 
 function getBody(bodyName) {
