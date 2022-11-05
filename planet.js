@@ -28,11 +28,13 @@ function displayBody(body){
     let massValue;
     let massExponent;
     let radius = body.meanRadius;
+    console.log('radisu is ', radius);
     let earthRadius = 6371.0084;
     let discoveredString;
     let ratio;
     let vol_string;
     let radius_string;
+    console.log('radisu is ', radius);
 
     if(radius>earthRadius){
         ratio=(radius/earthRadius)**3;
@@ -56,9 +58,15 @@ function displayBody(body){
         vol_string='You can fit '+ratio+' '+name +' in  Earth';
     }
 
-    document.getElementById('volumeComparison').textContent = vol_string;
-    radius_string= 'The mean radius of '+name+' is '+Math.round(radius)+' km.';
-    document.getElementById('radius').textContent = radius_string;
+    if(radius!=0){
+
+        document.getElementById('volumeComparison').textContent = vol_string;
+        radius_string= 'The mean radius of '+name+' is '+radius+' km.';
+        console.log('radisu is ', radius);
+        document.getElementById('radius').textContent = radius_string;
+
+    }
+
 
 
 
