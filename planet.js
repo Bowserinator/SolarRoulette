@@ -115,7 +115,7 @@ function displayBody(body){
         ctx.fill();
         ctx.fillStyle = "black";
         ctx.font = "30px Arial";
-        ctx.fillText("Earth (for scale)", 100, 450)
+        ctx.fillText("Earth (for scale)", 100, 400)
 
         var rad = 1+(350*radius/earthRadius);
 
@@ -136,7 +136,7 @@ function displayBody(body){
         ctx.fill();
         ctx.fillStyle = "black";
         ctx.font = "30px Arial";
-        ctx.fillText("Earth (for scale)", Math.max(400-(150*earthRadius/radius), 30), 450)
+        ctx.fillText("Earth (for scale)", Math.max(400-(150*earthRadius/radius), 30), 400)
 
         var rad = 150;
 
