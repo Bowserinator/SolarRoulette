@@ -10,6 +10,8 @@ async function getData(){
             planets.splice(planets.length, 0, body);
         }
     });
+
+    getRandomPlanet();
 }
 getData().catch(error =>{
     console.log('something is wrong');
@@ -184,4 +186,3 @@ function getRandomPlanet(){
     let planet = planets[i];
     displayBody(planet);
 }
-
