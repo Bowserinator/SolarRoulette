@@ -1,0 +1,11 @@
+.dot {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(15, 199, 86);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  #myCanvas {
+    border: 10px black;
+  }
