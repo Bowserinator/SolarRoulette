@@ -25,7 +25,7 @@ function displayBody(body){
     let discoveryDate;
     let bodyType=body.bodyType.toLowerCase();
     let axialTilt = body.axialTilt;
-    let bodyTypeString='';
+    let bodyTypeString;
     let mass_string;
     let massValue;
     let massExponent;
@@ -42,7 +42,7 @@ function displayBody(body){
         ratio=(radius/earthRadius)**3;
         console.log(ratio);
         ratio=Math.round(ratio);
-        vol_string='You can fit '+ratio+' Earth in '+name;
+        vol_string='You can fit '+ratio+' Earth in '+name+'.';
         
     }
     else if(radius<earthRadius){
@@ -50,14 +50,14 @@ function displayBody(body){
         console.log(ratio);
         ratio=Math.round(ratio);
 
-        vol_string='You can fit '+ratio+' '+name +' in  Earth';
+        vol_string='You can fit '+ratio+' '+name +' in  Earth.';
     }
     else{
         ratio=(earthRadius/radius)**3;
         console.log(ratio);
         ratio=Math.round(ratio);
 
-        vol_string='You can fit '+ratio+' '+name +' in  Earth';
+        vol_string='You can fit '+ratio+' '+name +' in  Earth.';
     }
 
     if(radius!=0){
@@ -82,7 +82,7 @@ function displayBody(body){
         console.log(discoveredBy);
         console.log(discoveryDate);
         console.log('hhhhh');
-        discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy;
+        discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy+'.';
     }
 
     if(discoveredString!=''){
@@ -90,29 +90,38 @@ function displayBody(body){
 
     }
     
+    bodyTypeString=' is';
+
+
 
     if(bodyType[0]=='a'){
-        bodyTypeString=' an '+ bodyType;
+        bodyTypeString+=' an '+ bodyType;
     }else{
-        bodyTypeString=' a '+ bodyType;
+        bodyTypeString+=' a '+ bodyType;
     }
 
+    console.log('aaaa');
+
+    console.log(bodyTypeString);
+    console.log('aaaaa');
+
+    bodyTypeString+='.';
     console.log(bodyTypeString);
 
     if (body.mass == null){
         console.log('the mass in null');
-        mass_string=' The mass is unabilable.'
     }
     else{
         massValue = body.mass.massValue;
         massExponent = body.mass.massExponent;
-        mass_string=massValue+' x 10^'+massExponent+'kg';
+        mass_string=' It has a mass of '+massValue+' x 10^'+massExponent+' kg.';
     }
     console.log(name);
     
     document.getElementById('name').textContent = name;
-    document.getElementById('mass').textContent = mass_string ;
     document.getElementById('bodyType').textContent = bodyTypeString ;
+
+    document.getElementById('mass').textContent = mass_string ;
 
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");

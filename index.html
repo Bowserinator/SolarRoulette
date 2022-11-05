@@ -15,23 +15,36 @@
 
             <h1 class="bg-primary text-black p-2">Hello welcome to Solar System App</h1>
 
-            <button class="btn-danger btn-lg d-block" onclick="getRandomBody()">Click for random celestial body</button>
-            <button class="btn-danger btn-lg d-block" onclick="getRandomPlanet()">Click for random planet</button>
-            
-            <h1 class="d-inline-block text-white" id="name"></h1>
-            <h1 class="d-inline-block text-white">is </h1>
-            <h1 class="d-inline-block text-white" id="bodyType"></h1>
-            <h1 class="d-inline-block text-white">.</h1>
-    
-            
-            <h1 class="d-inline-block text-white"> It has a mass of </h1>
-    
-            <h1 class="d-inline-block text-white" id="mass"></h1>
+            <div class="btn-group">
+                <button class="btn-danger btn-lg d-block" onclick="getRandomBody()">Click for random celestial body</button>
+                <button class="btn-danger btn-lg d-block" onclick="getRandomPlanet()">Click for random planet</button>
 
-            <h1 class="d-inline-block text-white" id="discover"></h1>
 
-            <h1 class="d-inline-block text-white" id="radius"></h1>
-            <h1 class="d-inline-block text-white" id="volumeComparison"></h1>
+            </div>
+            
+
+            <div class="card" id="info_box">
+
+                <div class="card-body">
+
+                    <h1 class="d-inline text-danger" id="name"></h1>
+                    &nbsp
+                    <h1 class="d-inline text-white" id="bodyType"></h1>
+                        
+                    <h1 class="d-inline text-white" id="mass"></h1>
+        
+                    <h1 class="d-inline text-white" id="discover"></h1>
+        
+                    <h1 class="d-inline text-white" id="radius"></h1>
+                    <h1 class="d-inline text-secondary" id="volumeComparison"></h1>
+
+
+                </div>
+
+
+            </div>
+            
+
 
 
             <canvas id="myCanvas" width=1120% height=600%></canvas>
