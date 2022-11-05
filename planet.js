@@ -17,6 +17,8 @@ async function getData(){
     let mass_string;
     let massValue;
     let massExponent;
+    let radius = planet.meanRadius;
+    let earthRadius = 6371.0084;
 
     if (planet.mass == null){
         console.log('the mass in null');
@@ -32,11 +34,32 @@ async function getData(){
     console.log(name);
 
     
-    
-
-    
     document.getElementById('name').textContent = name;
     document.getElementById('mass').textContent = mass_string ;
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    if (radius*10 < earthRadius){
+        ctx.beginPath();
+        ctx.arc(100, 300, 400, 0, 2 * Math.PI);
+        ctx.fillStyle = "lightseagreen";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(600, 300, 1+(350*radius/earthRadius), 0, 2 * Math.PI);
+        ctx.fillStyle = "brown";
+        ctx.fill();
+    } else {
+        ctx.beginPath();
+        ctx.arc(300-(150*earthRadius/radius), 300, 150*earthRadius/radius, 0, 2 * Math.PI);
+        ctx.fillStyle = "lightseagreen";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(600, 300, 150, 0, 2 * Math.PI);
+        ctx.fillStyle = "brown";
+        ctx.fill();
+    }
 
 }
 
