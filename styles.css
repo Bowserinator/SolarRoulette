@@ -4,6 +4,8 @@ body {
 
 #myCanvas {
   border: 6px solid rgb(212, 165, 11);
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #info_box {

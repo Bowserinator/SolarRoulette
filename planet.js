@@ -28,14 +28,14 @@ getData().catch(error =>{
 
 function displayBody(body){
 
-    let idata;
-    $.getJSON("./imgdata.json", function(data){
-        $.each(data,function(key,value){
-            if (key == body.englishName){
-                document.getElementById("bimg").src = value;
-            }
-        })
-    })
+    // let idata;
+    // $.getJSON("./imgdata.json", function(data){
+    //     $.each(data,function(key,value){
+    //         if (key == body.englishName){
+    //             document.getElementById("bimg").src = value;
+    //         }
+    //     })
+    // })
     
     prevBody = body;
     let name = body.englishName;
@@ -164,7 +164,7 @@ function displayBody(body){
 
         ctx.fillStyle = "white";
         ctx.font = "30px Arial";
-        ctx.fillText(name, 800-(8*name.length), 400)
+        ctx.fillText(name, 700-(8*name.length), 400)
     } else {
         ctx.lineWidth = 4;
         ctx.beginPath();
@@ -173,7 +173,7 @@ function displayBody(body){
         ctx.fill();
         ctx.fillStyle = "white";
         ctx.font = "30px Arial";
-        ctx.fillText("Earth (for scale)", Math.max(394-(150*earthRadius/radius), 30), 400)
+        ctx.fillText("Earth (for scale)", Math.max(294-(150*earthRadius/radius), 30), 400)
 
         var rad = 150;
 
@@ -191,7 +191,7 @@ function displayBody(body){
 
         ctx.fillStyle = "white";
         ctx.font = "30px Arial";
-        ctx.fillText(name, 800-(8*name.length), 400)
+        ctx.fillText(name, 700-(8*name.length), 400)
     }
 }
 
