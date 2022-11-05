@@ -1,0 +1,8 @@
+- Neatify code
+- Add ground plane
+    - fog
+- bloom effect for celestial objects
+- Blur effect?
+- Only let zoom in not out
+
+- onresize
