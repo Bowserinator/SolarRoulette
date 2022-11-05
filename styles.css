@@ -5,3 +5,9 @@ body {
 #myCanvas {
   border: 6px solid rgb(212, 165, 11);
 }
+
+#info_box {
+  background-color: rgb(0, 0, 66);
+  height: 200px;
+
+}
