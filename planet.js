@@ -14,13 +14,26 @@ async function getData(){
     let discoveryDate;
     let bodyType=planet.bodyType;
     bodyType=bodyType.toLowerCase();
-    let bodyTypeString;
+    let bodyTypeString='';
     // console.log(bodyType);
     let mass_string;
     let massValue;
     let massExponent;
     let radius = planet.meanRadius;
     let earthRadius = 6371.0084;
+    let discoveredString;
+
+
+    if (planet.discoveredBy!=null && planet.discoveryDate!=null){
+        discoveredBy=planet.discoveredBy;
+        discoveryDate=planet.discoveryDate;
+        discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy;
+    }
+
+    if(discoveredString!=''){
+        document.getElementById('discover').textContent = discoveredString;
+
+    }
     
 
     if(bodyType[0]=='a'){
