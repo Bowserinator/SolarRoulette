@@ -91,3 +91,14 @@ input[type="text"]:focus {
 #canvas-container {
     position: relative;
 }
+
+.card-img{
+  object-fit: cover;
+  border: 3px solid #666;
+  height: 350px;
+  width: auto;
+}
+
+.card {
+  border: none;
+}
