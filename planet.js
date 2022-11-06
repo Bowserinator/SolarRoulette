@@ -271,6 +271,7 @@ function getRandomDwarf(){
 }
 
 function getBody(bodyName) {
+    console.log(bodyName);
     bodyName = bodyName.toLowerCase();
     bodies.forEach(body => {
         console.log(body.englishName.toLowerCase());
@@ -278,4 +279,9 @@ function getBody(bodyName) {
             displayBody(body);
         }
     });
+}
+
+function searchBody() {
+    getBody(document.getElementById('searchBar').value);
+    return false;
 }

@@ -25,9 +25,9 @@
             </div>
             <div >
                 <label for="city" class="form-label h2 text-light my-3">Enter a celestial body in our solar system:</label>
-                <form class="form-inline">
+                <form class="form-inline" id="addForm" name="addForm" action="#" method="post" onsubmit="return searchBody();">
                     <div class="d-flex">
-                        <input type="text" placeholder="e.g. Jupiter" class="input_text form-control" id="" name="city">
+                        <input type="text" placeholder="e.g. Jupiter" class="input_text form-control" id="searchBar">
                         <button id="submit" class="btn btn-primary">Search</button>
                     </div>
                 </form>
