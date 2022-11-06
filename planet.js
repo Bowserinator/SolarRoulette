@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    $.getJSON("./imgdata.json", function(data){
+        idata = data;
+    })
+});
+
 async function getData(){
     api_key = 'zEsyctgqv7GuG9zfr5IZLA==1fYgWoEeJCtcP5vq';
     data_url = 'https://api.le-systeme-solaire.net/rest/bodies/';
@@ -38,16 +44,12 @@ function displayBody(body){
     if (window.onChangeBody)
         window.onChangeBody(body);
 
-     $.getJSON("./imgdata.json", function(data){
-         $.each(data,function(key,value){
-             if (key == body.englishName){
-                 document.getElementsByClassName("card-img")[0].src = value;
-             }
-         })
-     })
     
     prevBody = body;
     let name = body.englishName;
+
+    document.getElementsByClassName("card-img")[0].src = idata[name];
+
     let discoveredBy;
     let discoveryDate;
     let bodyType=body.bodyType.toLowerCase();
@@ -285,7 +287,7 @@ function getSun(){
 function getBody(bodyName) {
     console.log(bodyName);
     bodyName = bodyName.toLowerCase();
-    bodyFound = false;
+    var bodyFound = false;
     bodies.forEach(body => {
         //console.log(body.englishName.toLowerCase());
         if (!bodyFound && body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
@@ -322,7 +324,7 @@ console.log(earth);
 
 
 function searchBody() {
-    var bodyName = document.getElementById('searchBar').value;
+    var bodyName = document.getElementById('searchBar').value.toLowerCase();
     if (bodyName == null || bodyName.length == 0){
         return false;
     }
@@ -331,9 +333,45 @@ function searchBody() {
 }
 
 
+function doAutocomplete() {
+    if (!bodies) return;
+    let lis = [];
+    let bodyName = document.getElementById('searchBar').value.toLowerCase();
+    document.getElementById('search-autocomplete').style.display = 'block';
+    if (bodyName.length < 2) {
+        document.getElementById('search-autocomplete').style.display = 'none';
+        return;
+    }
+
+    function createLi(body) {
+        let li = document.createElement('li');
+        li.innerText = `${body.englishName} (${body.id})`;
+        let name = body.englishName;
+        li.onclick = () => {
+            document.getElementById('searchBar').value = name;
+            document.getElementById('searchBar').focus();
+            document.getElementById('search-autocomplete').style.display = 'none';
+            searchBody();
+        }
+        return li;
+    }
+
+    for (let body of bodies) {
+        if (body.englishName.toLowerCase().includes(bodyName) || body.id.toLowerCase().includes(bodyName) || body.name.toLowerCase().includes(bodyName))
+            lis.push(body);
+    }
+
+    lis = lis.map(createLi);
+    document.getElementById('search-autocomplete').replaceChildren(...lis);
+}
+
 function switchToSky() {
     const ca = document.getElementById('sky-canvas');
     const cb = document.getElementById('myCanvas');
+    const tab1 = document.getElementById('tab1');
+    const tab2 = document.getElementById('tab2');
+    tab2.classList.remove('tab-select');
+    tab1.classList.add('tab-select');
     ca.style.visibility = 'visible';
     cb.style.visibility = 'hidden';
 }
@@ -341,6 +379,10 @@ function switchToSky() {
 function switchToSize() {
     const ca = document.getElementById('sky-canvas');
     const cb = document.getElementById('myCanvas');
+    const tab1 = document.getElementById('tab1');
+    const tab2 = document.getElementById('tab2');
+    tab1.classList.remove('tab-select');
+    tab2.classList.add('tab-select');
     ca.style.visibility = 'hidden';
     cb.style.visibility = 'visible';
 }
@@ -352,6 +394,5 @@ function onWindowResize(){
     cb.height = Math.round(cb.offsetHeight / cb.offsetWidth * 1000);
     displayBody(window.currentBody);
 }
-
 
 onWindowResize();

@@ -4,6 +4,7 @@ import { EffectComposer } from 'https://unpkg.com/three@0.146.0/examples/jsm/pos
 import { UnrealBloomPass } from 'https://unpkg.com/three@0.146.0/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { RenderPass } from 'https://unpkg.com/three@0.146.0/examples/jsm/postprocessing/RenderPass.js';
 import { AfterimagePass } from 'https://unpkg.com/three@0.146.0/examples/jsm/postprocessing/AfterimagePass.js';
+import image from '../imgdata.json' assert {type: 'json'};
 
 // Sim parameters
 const CELESTIAL_SPHERE = 1200; // Radius of stars
@@ -141,7 +142,7 @@ function createPlanet(size, img, override=[-1, -1]) {
     size = override[0] > 0 ? override[0] : calcAngularSize(size) * 4;
     
     // planets.forEach(p => scene.remove(p));
-    const map = new THREE.TextureLoader().load(`../img/${img}`);
+    const map = new THREE.TextureLoader().load(img.startsWith('http') ? img : `../img/${img}`);
     map.wrapS = THREE.ClampToEdgeWrapping;
     map.wrapT = THREE.RepeatWrapping;
 
@@ -230,6 +231,15 @@ window.onChangeBody = body => {
             break;
         case "Titan":
             createPlanet(2574, 'titan.png');
+            break;
+        case "136199 Eris":
+            createPlanet(1163, 'eris.png');
+            break;
+        default:
+            if (body.meanRadius < 100000 && body.meanRadius > 200) {
+                console.log(body);
+                createPlanet(body.meanRadius, image[body.englishName]);
+            }
             break;
     }
 

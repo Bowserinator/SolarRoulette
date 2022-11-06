@@ -1,0 +1,3 @@
+- favicon
+- social meta tags 
+- mobile sizing
