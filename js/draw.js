@@ -33,6 +33,10 @@ const controls = new OrbitControls( camera, renderer.domElement );
 controls.minDistance = 1;
 controls.maxDistance = 100;
 
+// Look at moon initially
+controls.maxAzimuthAngle = Math.PI; // radians
+controls.update();
+
 controls.minAzimuthAngle = Math.PI - Math.PI / 4; // radians
 controls.maxAzimuthAngle = Math.PI + Math.PI / 4; // radians
 
