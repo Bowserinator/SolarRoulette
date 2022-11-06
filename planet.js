@@ -284,7 +284,7 @@ function getBody(bodyName) {
 }
 
 function searchBody() {
-    var bodyName = document.getElementById('searchBar').value;
+    var bodyName = document.getElementById('searchBar').value.toLowerCase();
     if (bodyName == null || bodyName.length == 0){
         return false;
     }
@@ -292,6 +292,35 @@ function searchBody() {
     return false;
 }
 
+
+function doAutocomplete() {
+    if (!bodies) return;
+    let lis = [];
+    let bodyName = document.getElementById('searchBar').value.toLowerCase();
+    document.getElementById('search-autocomplete').style.display = 'block';
+    if (bodyName.length < 2) return;
+
+    function createLi(body) {
+        let li = document.createElement('li');
+        li.innerText = `${body.englishName} (${body.id})`;
+        let name = body.englishName;
+        li.onclick = () => {
+            document.getElementById('searchBar').value = name;
+            document.getElementById('searchBar').focus();
+            document.getElementById('search-autocomplete').style.display = 'none';
+            searchBody();
+        }
+        return li;
+    }
+
+    for (let body of bodies) {
+        if (body.englishName.toLowerCase().includes(bodyName) || body.id.toLowerCase().includes(bodyName) || body.name.toLowerCase().includes(bodyName))
+            lis.push(body);
+    }
+
+    lis = lis.map(createLi);
+    document.getElementById('search-autocomplete').replaceChildren(...lis);
+}
 
 function switchToSky() {
     const ca = document.getElementById('sky-canvas');

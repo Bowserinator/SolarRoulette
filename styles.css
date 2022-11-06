@@ -100,3 +100,29 @@ input[type="text"]:focus {
 .card {
   border: none;
 }
+
+#search-autocomplete {
+    position: absolute;
+    top: 38px;
+    width: 100%;
+    background-color: #111;
+    transition: background-color 0.2s;
+    color: #ccc;
+    display: block;
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 100;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#search-autocomplete > li {
+    padding: 10px;
+}
+
+#search-autocomplete > li:hover {
+    background-color: #222;
+    cursor: pointer;
+}
