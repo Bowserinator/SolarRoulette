@@ -142,8 +142,8 @@ function displayBody(body){
     bodyTypeString+='.';
     console.log(bodyTypeString);
 
-    if (body.mass == null){
-        console.log('the mass in null');
+    if (!body.mass){
+        mass_string = '';
     }
     else{
         massValue = body.mass.massValue;
