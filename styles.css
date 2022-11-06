@@ -95,13 +95,16 @@ input[type="text"]:focus {
 }
 
 .card-img{
-  object-fit: cover;
-  height: 350px;
-  width: auto;
+    object-fit: cover;
+    background-color: transparent;
+    height: 350px;
+    width: auto;
+    border-radius: 4px !important;
 }
 
 .card {
-  border: none;
+    border: none;
+    background-color: transparent !important;
 }
 
 #search-autocomplete {
