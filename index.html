@@ -7,51 +7,53 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Solar System App</title>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+                
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <div class="container pt-3">
+            <h1 class="title text-light p-2 text-center">Solar System App</h1>
 
-        <div class="container pt-5">
-
-            <h1 class="text-light p-2 text-center">Solar System App</h1>
-
-            <div class="btn-group justify-content-center d-flex">
-                <button class="btn-danger btn-lg d-block" onclick="getRandomBody()">Any Body</button>
-                <button class="btn-danger btn-lg d-block" onclick="getRandomPlanet()">Planet</button>
-                <button class="btn-danger btn-lg d-block" onclick="getRandomMoon()">Moon</button>
-                <button class="btn-danger btn-lg d-block" onclick="getRandomDwarf()">Dwarf Planet</button>
-                <button class="btn-danger btn-lg d-block" onclick="getRandomAsteroid()">Asteroid</button>
-                <button class="btn-danger btn-lg d-block" onclick="getRandomComet()">Comet</button>
-                <button class="btn-danger btn-lg d-block" onclick="getSun()">Sun</button>
+            <div class="btn-group centered-buttons">
+                <button class="btn-lg d-block" onclick="getRandomBody()">Any Body</button>
+                <button class="btn-lg d-block" onclick="getRandomPlanet()">Planet</button>
+                <button class="btn-lg d-block" onclick="getRandomMoon()">Moon</button>
+                <button class="btn-lg d-block" onclick="getRandomDwarf()">Dwarf Planet</button>
+                <button class="btn-lg d-block" onclick="getRandomAsteroid()">Asteroid</button>
+                <button class="btn-lg d-block" onclick="getRandomComet()">Comet</button>
+                <button class="btn-lg d-block" onclick="getSun()">Sun</button>
             </div>
+
+            <div class="line"></div>
             <div >
                 <label for="city" class="form-label h2 text-light my-3">Enter a celestial body in our solar system:</label>
                 <form class="form-inline" id="addForm" name="addForm" action="#" method="post" onsubmit="return searchBody();">
                     <div class="d-flex">
-                        <input type="text" placeholder="e.g. Jupiter" class="input_text form-control" id="searchBar">
-                        <button id="submit" class="btn btn-primary">Search</button>
+                        <input autocomplete="off"
+                            type="text" placeholder="e.g. Jupiter" class="input_text form-control" id="searchBar">
+                        <button id="submit">Search</button>
                     </div>
                 </form>
             </div>
-
+            <br>
 
             <div class="row">
                 <div class="col-8">
-                    <canvas id="myCanvas" width=860 height=600%></canvas>
+                    <canvas id="myCanvas" width="860px" height="600px"></canvas>
                 </div>
-                <div class="col-4">
+                <div class="col-4 planet-info-box">
+                    <p class="d-inline text-danger" id="name"></p>
+                    <p class="d-inline text-white" id="bodyType"></p>     
+                    <p class="d-inline text-white" id="discover"></p>
+                    <br><br>
+                    <p class="d-inline text-white" id="mass"></p>
+                    <p class="d-inline text-white" id="radius"></p>
+                    <p class="d-inline text-primary" id="volumeComparison"></p>
 
-                    <div class="card border-light" id="info_box">
-                        <div class="card-body">
-                            <h1 class="d-inline text-danger" id="name"></h1>
-                            &nbsp
-                            <h1 class="d-inline text-white" id="bodyType"></h1>     
-                            <h1 class="d-inline text-white" id="mass"></h1>
-                            <h1 class="d-inline text-white" id="discover"></h1>
-                            <h1 class="d-inline text-white" id="radius"></h1>
-                            <h1 class="d-inline text-secondary" id="volumeComparison"></h1>
-                        </div>
-                    </div>
                     <div class="card mt-3 border-light" id="img_box">
                         <div class="card-body">
 
@@ -62,16 +64,8 @@
                     
                 </div>
             </div>
-
-
-            
-
-
-
-            
-
         </div>
-
+        <br>
 
         <script src="planet.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -1,6 +1,6 @@
 async function getData(){
     api_key = 'zEsyctgqv7GuG9zfr5IZLA==1fYgWoEeJCtcP5vq';
-    data_url='https://api.le-systeme-solaire.net/rest/bodies/'
+    data_url = 'https://api.le-systeme-solaire.net/rest/bodies/';
     let data = await fetch(data_url);
     let json_data = await data.json();
     bodies = json_data.bodies;
@@ -23,8 +23,6 @@ async function getData(){
             dwarfs.splice(dwarfs.length, 0, body);
         }
     });
-
-
 
     prevBody = bodies[243];
     getRandomPlanet();
@@ -57,13 +55,35 @@ function displayBody(body){
     let massValue;
     let massExponent;
     let radius = body.meanRadius;
-    console.log('radisu is ', radius);
+    console.log('radius is ', radius);
     let earthRadius = 6371.0084;
     let discoveredString;
     let ratio;
     let vol_string;
     let radius_string;
-    console.log('radisu is ', radius);
+    console.log('radius is ', radius);
+
+    if(radius>earthRadius){
+        ratio=(radius/earthRadius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio).toLocaleString();
+        vol_string='You can fit ≈ '+ratio+' Earths in '+name+'.';
+        
+    }
+    else if(radius<earthRadius){
+        ratio=(earthRadius/radius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio).toLocaleString();
+
+        vol_string='You can fit ≈ '+ratio+' of '+name +' in  Earth.';
+    }
+    else{
+        ratio=(earthRadius/radius)**3;
+        console.log(ratio);
+        ratio=Math.round(ratio).toLocaleString();
+
+        vol_string='You can fit ≈ '+ratio+' of '+name +' in  Earth.';
+    }
 
     if(radius!=0){
         if(radius>earthRadius){
@@ -81,7 +101,7 @@ function displayBody(body){
         }
 
         document.getElementById('volumeComparison').textContent = vol_string;
-        radius_string= 'The mean radius of '+name+' is '+radius+' km.\n';
+        radius_string= 'The mean radius of '+name+' is '+radius.toLocaleString()+' km.';
         console.log('radisu is ', radius);
         document.getElementById('radius').textContent = radius_string;
     } else {
@@ -90,24 +110,27 @@ function displayBody(body){
     }
 
     if (body.discoveredBy!='' && body.discoveryDate!=''){
-
         discoveredBy=body.discoveredBy;
         discoveryDate=body.discoveryDate;
+        discoveryDate = discoveryDate.split('/');
+
+        // Swap M/D for US format
+        [discoveryDate[0], discoveryDate[1]] = [discoveryDate[1], discoveryDate[0]];
+        discoveryDate = discoveryDate.join('/');
+
         console.log('hhhhh');
         console.log(discoveredBy);
         console.log(discoveryDate);
         console.log('hhhhh');
-        discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy+'.\n';
+        discoveredString= 'It was discovered on <span class="text-primary">' + discoveryDate +
+            '</span> by <span class="text-primary">'+ discoveredBy+'</span>.';
     }
 
-    if(discoveredString!=''){
-        document.getElementById('discover').textContent = discoveredString;
-
+    if (discoveredString){
+        document.getElementById('discover').innerHTML = discoveredString;
     }
     
     bodyTypeString=' is';
-
-
 
     if(bodyType[0]=='a'){
         bodyTypeString+=' an '+ bodyType;
@@ -115,12 +138,8 @@ function displayBody(body){
         bodyTypeString+=' a '+ bodyType;
     }
 
-    console.log('aaaa');
-
     console.log(bodyTypeString);
-    console.log('aaaaa');
-
-    bodyTypeString+='.\n';
+    bodyTypeString+='.';
     console.log(bodyTypeString);
 
     if (body.mass == null){
@@ -129,18 +148,20 @@ function displayBody(body){
     else{
         massValue = body.mass.massValue;
         massExponent = body.mass.massExponent;
-        mass_string=' It has a mass of '+massValue+' x 10^'+massExponent+' kg.\n';
+        mass_string = ` It has a mass of ${massValue.toLocaleString()} x 10<sup>${massExponent}</sup> kg.`;
     }
     console.log(name);
     
     document.getElementById('name').textContent = name;
     document.getElementById('bodyType').textContent = bodyTypeString ;
 
-    document.getElementById('mass').textContent = mass_string ;
+    document.getElementById('mass').innerHTML = mass_string ;
 
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.clearRect(0, 0, c.width, c.height);
+    ctx.font = "28px 'Roboto Condensed'";
+    ctx.lineWidth = 1;
     if (radius*6.4 < earthRadius){
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -148,7 +169,6 @@ function displayBody(body){
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
         ctx.fillStyle = "white";
-        ctx.font = "30px Arial";
         ctx.fillText("Earth (for scale)", 100, 400)
 
         var rad = 1+(350*radius/earthRadius);
@@ -165,7 +185,6 @@ function displayBody(body){
         ctx.fill();
 
         ctx.fillStyle = "white";
-        ctx.font = "30px Arial";
         ctx.fillText(name, 700-(8*name.length), 400)
     } else {
         ctx.lineWidth = 4;
@@ -174,7 +193,6 @@ function displayBody(body){
         ctx.fillStyle = "lightseagreen";
         ctx.fill();
         ctx.fillStyle = "white";
-        ctx.font = "30px Arial";
         ctx.fillText("Earth (for scale)", Math.max(294-(150*earthRadius/radius), 30), 400)
 
         var rad = 150;
@@ -192,7 +210,6 @@ function displayBody(body){
         ctx.fill();
 
         ctx.fillStyle = "white";
-        ctx.font = "30px Arial";
         ctx.fillText(name, 700-(8*name.length), 400)
     }
 }
