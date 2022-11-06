@@ -128,6 +128,8 @@ function displayBody(body){
 
     if (discoveredString){
         document.getElementById('discover').innerHTML = discoveredString;
+    } else {
+        document.getElementById('discover').innerHTML = "";
     }
     
     bodyTypeString=' is';
