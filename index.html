@@ -108,12 +108,19 @@
                     
 
                     <div class="card mt-3 border-light" id="img_box">
-                        <img class="card-img" src="" alt="Card image">
+                        <img class="card-img" id="card-img" src="" style="display:none" onload="loadEverything()" alt="Card image">
                     </div>
                 </div>
             </div>
         </div>
         <br>
+
+        <div id="loading" class="loading text-center">
+            <div class="centered-loading">
+                <h1>Loading data...</h1>
+                <div id="loading-indicator"></div>
+            </div>
+        </div>
 
         <script src="planet.js"></script>
         <script src="js/draw.js" type="module"></script>

@@ -410,3 +410,9 @@ function onWindowResize(){
 }
 
 onWindowResize();
+
+
+function loadEverything() {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('card-img').style.display = 'block';
+}
