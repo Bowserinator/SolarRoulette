@@ -16,3 +16,7 @@ body {
   width: 700px;
 }
 
+.card-img{
+  object-fit: cover;
+   border: 12px solid rgb(212, 165, 11);
+}
