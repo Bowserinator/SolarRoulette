@@ -19,19 +19,22 @@
             <h1 class="title text-light p-2 text-center">Solar System App</h1>
 
             <div class="btn-group centered-buttons">
-                <button class="btn-lg d-block" onclick="getRandomBody()">Click for random celestial body</button>
-                <button class="btn-lg d-block" onclick="getRandomPlanet()">Click for random planet</button>
-                <button class="btn-lg d-block" onclick="getRandomMoon()">Click for random moon</button>
+                <button class="btn-lg d-block" onclick="getRandomBody()">Any Body</button>
+                <button class="btn-lg d-block" onclick="getRandomPlanet()">Planet</button>
+                <button class="btn-lg d-block" onclick="getRandomMoon()">Moon</button>
+                <button class="btn-lg d-block" onclick="getRandomDwarf()">Dwarf Planet</button>
+                <button class="btn-lg d-block" onclick="getRandomAsteroid()">Asteroid</button>
+                <button class="btn-lg d-block" onclick="getRandomComet()">Comet</button>
+                <button class="btn-lg d-block" onclick="getSun()">Sun</button>
             </div>
 
-            <div class="line">
-
-            <div>
+            <div class="line"></div>
+            <div >
                 <label for="city" class="form-label h2 text-light my-3">Enter a celestial body in our solar system:</label>
-                <form class="form-inline">
+                <form class="form-inline" id="addForm" name="addForm" action="#" method="post" onsubmit="return searchBody();">
                     <div class="d-flex">
                         <input autocomplete="off"
-                            type="text" placeholder="e.g. Jupiter" class="input_text form-control" id="">
+                            type="text" placeholder="e.g. Jupiter" class="input_text form-control" id="searchBar">
                         <button id="submit">Search</button>
                     </div>
                 </form>
@@ -50,6 +53,14 @@
                     <p class="d-inline text-white" id="mass"></p>
                     <p class="d-inline text-white" id="radius"></p>
                     <p class="d-inline text-primary" id="volumeComparison"></p>
+
+                    <div class="card mt-3 border-light" id="img_box">
+                        <div class="card-body">
+
+                            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/220px-FullMoon2010.jpg" alt="Card image">
+
+                        </div>
+                    </div>
                     
                 </div>
             </div>

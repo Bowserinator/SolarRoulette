@@ -6,12 +6,21 @@ async function getData(){
     bodies = json_data.bodies;
     planets = [];
     moons = [];
+    dwarfs = [];
+    asteroids = [];
+    comets = [];
     bodies.forEach(body => {
         if (body.isPlanet) {
             planets.splice(planets.length, 0, body);
         }
         else if (body.bodyType == "Moon") {
             moons.splice(moons.length, 0, body);
+        } else if (body.bodyType == "Asteroid") {
+            asteroids.splice(asteroids.length, 0, body);
+        } else if (body.bodyType == "Comet") {
+            comets.splice(comets.length, 0, body);
+        } else if (body.bodyType == "Dwarf Planet") {
+            dwarfs.splice(dwarfs.length, 0, body);
         }
     });
 
@@ -77,12 +86,27 @@ function displayBody(body){
     }
 
     if(radius!=0){
+        if(radius>earthRadius){
+            ratio=(radius/earthRadius)**3;
+            console.log(ratio);
+            ratio=Math.round(ratio);
+            vol_string='You can fit '+ratio+' Earth in '+name+'.\n';
+        }
+        else {
+            ratio=(earthRadius/radius)**3;
+            console.log(ratio);
+            ratio=Math.round(ratio);
+    
+            vol_string='You can fit '+ratio+' '+name +' in  Earth.\n';
+        }
 
         document.getElementById('volumeComparison').textContent = vol_string;
         radius_string= 'The mean radius of '+name+' is '+radius.toLocaleString()+' km.';
         console.log('radisu is ', radius);
         document.getElementById('radius').textContent = radius_string;
-
+    } else {
+        document.getElementById('volumeComparison').textContent = "";
+        document.getElementById('radius').textContent = "";
     }
 
     if (body.discoveredBy!='' && body.discoveryDate!=''){
@@ -223,12 +247,59 @@ function getRandomMoon(){
     displayBody(body);
 }
 
+function getRandomAsteroid(){
+    i=Math.floor(Math.random() * asteroids.length);
+    let body = asteroids[i];
+    while (body.id == prevBody.id) {
+        i=Math.floor(Math.random() * asteroids.length);
+        body = asteroids[i];
+    }
+    console.log(i);
+    displayBody(body);
+}
+
+function getRandomComet(){
+    i=Math.floor(Math.random() * comets.length);
+    let body = comets[i];
+    while (body.id == prevBody.id) {
+        i=Math.floor(Math.random() * comets.length);
+        body = comets[i];
+    }
+    console.log(i);
+    displayBody(body);
+}
+
+function getRandomDwarf(){
+    i=Math.floor(Math.random() * dwarfs.length);
+    let body = dwarfs[i];
+    while (body.id == prevBody.id) {
+        i=Math.floor(Math.random() * dwarfs.length);
+        body = dwarfs[i];
+    }
+    console.log(i);
+    displayBody(body);
+}
+
+function getSun(){
+    displayBody(bodies[242]);
+}
+
 function getBody(bodyName) {
+    console.log(bodyName);
     bodyName = bodyName.toLowerCase();
     bodies.forEach(body => {
-        console.log(body.englishName.toLowerCase());
-        if (body.id.toLowerCase() == bodyName || body.englishName.toLowerCase() == bodyName || body.name.toLowerCase() == bodyName){
+        //console.log(body.englishName.toLowerCase());
+        if (body.englishName.toLowerCase().includes(bodyName) || body.id.toLowerCase().includes(bodyName) || body.name.toLowerCase().includes(bodyName)){
             displayBody(body);
         }
     });
+}
+
+function searchBody() {
+    var bodyName = document.getElementById('searchBar').value;
+    if (bodyName == null || bodyName.length == 0){
+        return false;
+    }
+    getBody(bodyName);
+    return false;
 }
