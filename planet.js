@@ -269,15 +269,18 @@ function getSun(){
 function getBody(bodyName) {
     console.log(bodyName);
     bodyName = bodyName.toLowerCase();
+    bodyFound = false;
+    bodies.forEach(body => {
+        //console.log(body.englishName.toLowerCase());
+        if (!bodyFound && body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
+            displayBody(body);
+            bodyFound = true;
+        }
+    });
+    if (bodyFound) return;
     bodies.forEach(body => {
         //console.log(body.englishName.toLowerCase());
         if (body.englishName.toLowerCase().includes(bodyName) || body.id.toLowerCase().includes(bodyName) || body.name.toLowerCase().includes(bodyName)){
-            displayBody(body);
-        }
-    });
-    bodies.forEach(body => {
-        //console.log(body.englishName.toLowerCase());
-        if (body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
             displayBody(body);
         }
     });
