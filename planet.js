@@ -92,7 +92,7 @@ function displayBody(body){
             console.log(ratio);
             ratio=Math.round(ratio);
     
-            vol_string="You can fit "+ratio+" '"+name +"' in  Earth.\n";
+            vol_string="You can fit "+ratio+" of '"+name +"' in  Earth.\n";
         }
 
         document.getElementById('volumeComparison').textContent = vol_string;

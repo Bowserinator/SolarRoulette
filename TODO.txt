@@ -4,3 +4,4 @@
 - write readme
 - make video
 
+- download images
