@@ -1,5 +1,6 @@
 # Solar Roulette
 Project for HACKRPI 2022: Solar Roulette
+https://solarroulette.tech
 
 ## Inspiration
 Our group likes to appreciate the vastness of space. So we wanted other people to be able to appreciate it too. With the recent launch of the James Webb Telescope, the pace of space discovery has increased in recent years, although the public has not fully appreciated this. We thought it would be interesting to show the public our solar system.
