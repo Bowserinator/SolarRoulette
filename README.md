@@ -15,7 +15,6 @@ We ran in to many bugs involving rendering glitches as well as performance issue
 
 ## Accomplishments that we're proud of
 We are proud of the fact that we managed to complete a website within the4 time limit, despite having little experience with web design.
-We're proud of the fact that we made a functional and useful design in the 24 hour time window. Despite this being our first hackathon, we successfully brainstormed and developed an app which isn't too messy, and can be easily expanded.
 
 ## What we learned
 Some of us used bootstrap and HTML canvas for the first time. All of us learned many little things about web development, as well as 
