@@ -129,11 +129,13 @@ function displayBody(body){
     console.log(bodyTypeString);
 
     console.log('the bodytype is: ',bodyType);
-    if(bodyType='moon'){
+    if(bodyType=='moon'){
         aroundPlanet=body.aroundPlanet.planet;
         console.log(aroundPlanet);
         englishNamePlanet=getEnglishName(aroundPlanet);
         document.getElementById('aroundPlanet').innerHTML = "It's a moon of "+englishNamePlanet+". ";
+    } else {
+        document.getElementById('aroundPlanet').innerHTML = "";
     }
 
 
@@ -317,11 +319,6 @@ function getEnglishName(bodyName){
         }   
     }
 }
-
-let earth= getEnglishName('terre');
-console.log('the earth is flat');
-console.log(earth);
-
 
 function searchBody() {
     var bodyName = document.getElementById('searchBar').value.toLowerCase();
