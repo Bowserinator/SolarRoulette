@@ -69,7 +69,7 @@ function displayBody(body){
         ratio=(radius/earthRadius)**3;
         console.log(ratio);
         ratio=Math.round(ratio);
-        vol_string='You can fit '+ratio+' Earth in '+name+'.';
+        vol_string='You can fit '+ratio+' Earth in '+name+'.\n';
         
     }
     else if(radius<earthRadius){
@@ -77,20 +77,20 @@ function displayBody(body){
         console.log(ratio);
         ratio=Math.round(ratio);
 
-        vol_string='You can fit '+ratio+' '+name +' in  Earth.';
+        vol_string='You can fit '+ratio+' '+name +' in  Earth.\n';
     }
     else{
         ratio=(earthRadius/radius)**3;
         console.log(ratio);
         ratio=Math.round(ratio);
 
-        vol_string='You can fit '+ratio+' '+name +' in  Earth.';
+        vol_string='You can fit '+ratio+' '+name +' in  Earth.\n';
     }
 
     if(radius!=0){
 
         document.getElementById('volumeComparison').textContent = vol_string;
-        radius_string= 'The mean radius of '+name+' is '+radius+' km.';
+        radius_string= 'The mean radius of '+name+' is '+radius+' km.\n';
         console.log('radisu is ', radius);
         document.getElementById('radius').textContent = radius_string;
 
@@ -104,7 +104,7 @@ function displayBody(body){
         console.log(discoveredBy);
         console.log(discoveryDate);
         console.log('hhhhh');
-        discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy+'.';
+        discoveredString= 'It was discovered on ' + discoveryDate + ' by '+ discoveredBy+'.\n';
     }
 
     if(discoveredString!=''){
@@ -127,7 +127,7 @@ function displayBody(body){
     console.log(bodyTypeString);
     console.log('aaaaa');
 
-    bodyTypeString+='.';
+    bodyTypeString+='.\n';
     console.log(bodyTypeString);
 
     if (body.mass == null){
@@ -136,7 +136,7 @@ function displayBody(body){
     else{
         massValue = body.mass.massValue;
         massExponent = body.mass.massExponent;
-        mass_string=' It has a mass of '+massValue+' x 10^'+massExponent+' kg.';
+        mass_string=' It has a mass of '+massValue+' x 10^'+massExponent+' kg.\n';
     }
     console.log(name);
     
