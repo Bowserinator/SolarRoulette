@@ -232,6 +232,9 @@ window.onChangeBody = body => {
         case "Titan":
             createPlanet(2574, 'titan.png');
             break;
+        case "136199 Eris":
+            createPlanet(1163, 'eris.png');
+            break;
         default:
             if (body.meanRadius < 100000 && body.meanRadius > 200) {
                 console.log(body);
