@@ -274,14 +274,18 @@ function getBody(bodyName) {
     console.log(bodyName);
     bodyName = bodyName.toLowerCase();
     bodies.forEach(body => {
-        console.log(body.englishName.toLowerCase());
-        if (body.id.toLowerCase() == bodyName || body.englishName.toLowerCase() == bodyName || body.name.toLowerCase() == bodyName){
+        //console.log(body.englishName.toLowerCase());
+        if (body.englishName.toLowerCase().includes(bodyName) || body.id.toLowerCase().includes(bodyName) || body.name.toLowerCase().includes(bodyName)){
             displayBody(body);
         }
     });
 }
 
 function searchBody() {
-    getBody(document.getElementById('searchBar').value);
+    var bodyName = document.getElementById('searchBar').value;
+    if (bodyName == null || bodyName.length == 0){
+        return false;
+    }
+    getBody(bodyName);
     return false;
 }
