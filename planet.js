@@ -62,41 +62,19 @@ function displayBody(body){
     let radius_string;
     console.log('radius is ', radius);
 
-    if(radius>earthRadius){
-        ratio=(radius/earthRadius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio).toLocaleString();
-        vol_string='You can fit ≈ '+ratio+' Earths in '+name+'.';
-        
-    }
-    else if(radius<earthRadius){
-        ratio=(earthRadius/radius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio).toLocaleString();
-
-        vol_string='You can fit ≈ '+ratio+' of '+name +' in  Earth.';
-    }
-    else{
-        ratio=(earthRadius/radius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio).toLocaleString();
-
-        vol_string='You can fit ≈ '+ratio+' of '+name +' in  Earth.';
-    }
-
     if(radius!=0){
         if(radius>earthRadius){
             ratio=(radius/earthRadius)**3;
             console.log(ratio);
             ratio=Math.round(ratio);
-            vol_string='You can fit '+ratio+' Earth in '+name+'.\n';
+            vol_string='You can fit '+ratio+' Earth(s) in '+name+'.\n';
         }
         else {
             ratio=(earthRadius/radius)**3;
             console.log(ratio);
             ratio=Math.round(ratio);
     
-            vol_string='You can fit '+ratio+' '+name +' in  Earth.\n';
+            vol_string="You can fit "+ratio+" '"+name +"' in  Earth.\n";
         }
 
         document.getElementById('volumeComparison').textContent = vol_string;
