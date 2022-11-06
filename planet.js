@@ -31,8 +31,17 @@ async function getData(){
     });
 
     prevBody = bodies[243];
-    getRandomPlanet();
-    //getBody("earth");
+    //getRandomPlanet();
+    getBody("moon");
+    window.addEventListener('resize', onWindowResize, false);
+    function onWindowResize(){
+        const cb = document.getElementById('myCanvas');
+        cb.width = 1000;
+        cb.height = Math.round(cb.offsetHeight / cb.offsetWidth * 1000);
+        displayBody(window.currentBody);
+    }
+    onWindowResize();
+
 }
 getData().catch(error =>{
     console.log('something is wrong');
@@ -213,7 +222,7 @@ function displayBody(body){
 }
 
 function getRandomBody(){
-    i=Math.floor(Math.random() * bodies.length);
+    let i=Math.floor(Math.random() * bodies.length);
     let body = bodies[i];
     while (body.id == prevBody.id) {
         i=Math.floor(Math.random() * bodies.length);
@@ -224,7 +233,7 @@ function getRandomBody(){
 }
 
 function getRandomPlanet(){
-    i=Math.floor(Math.random() * planets.length);
+    let i=Math.floor(Math.random() * planets.length);
     let planet = planets[i];
     while (planet.id == prevBody.id) {
         i=Math.floor(Math.random() * planets.length);
@@ -235,7 +244,7 @@ function getRandomPlanet(){
 }
 
 function getRandomMoon(){
-    i=Math.floor(Math.random() * moons.length);
+    let i=Math.floor(Math.random() * moons.length);
     let body = moons[i];
     while (body.id == prevBody.id) {
         i=Math.floor(Math.random() * moons.length);
@@ -246,7 +255,7 @@ function getRandomMoon(){
 }
 
 function getRandomAsteroid(){
-    i=Math.floor(Math.random() * asteroids.length);
+    let i=Math.floor(Math.random() * asteroids.length);
     let body = asteroids[i];
     while (body.id == prevBody.id) {
         i=Math.floor(Math.random() * asteroids.length);
@@ -257,7 +266,7 @@ function getRandomAsteroid(){
 }
 
 function getRandomComet(){
-    i=Math.floor(Math.random() * comets.length);
+    let i=Math.floor(Math.random() * comets.length);
     let body = comets[i];
     while (body.id == prevBody.id) {
         i=Math.floor(Math.random() * comets.length);
@@ -268,7 +277,7 @@ function getRandomComet(){
 }
 
 function getRandomDwarf(){
-    i=Math.floor(Math.random() * dwarfs.length);
+    let i=Math.floor(Math.random() * dwarfs.length);
     let body = dwarfs[i];
     while (body.id == prevBody.id) {
         i=Math.floor(Math.random() * dwarfs.length);
@@ -383,13 +392,3 @@ function switchToSize() {
     ca.style.visibility = 'hidden';
     cb.style.visibility = 'visible';
 }
-
-window.addEventListener('resize', onWindowResize, false);
-function onWindowResize(){
-    const cb = document.getElementById('myCanvas');
-    cb.width = 1000;
-    cb.height = Math.round(cb.offsetHeight / cb.offsetWidth * 1000);
-    displayBody(window.currentBody);
-}
-
-onWindowResize();
