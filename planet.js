@@ -303,7 +303,10 @@ function doAutocomplete() {
     let lis = [];
     let bodyName = document.getElementById('searchBar').value.toLowerCase();
     document.getElementById('search-autocomplete').style.display = 'block';
-    if (bodyName.length < 2) return;
+    if (bodyName.length < 2) {
+        document.getElementById('search-autocomplete').style.display = 'none';
+        return;
+    }
 
     function createLi(body) {
         let li = document.createElement('li');

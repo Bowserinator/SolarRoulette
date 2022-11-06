@@ -1,2 +1,1 @@
-1. Implement autoocmplete
 2. load images for moons dynamically
