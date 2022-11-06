@@ -271,7 +271,7 @@ function getSun(){
 function getBody(bodyName) {
     console.log(bodyName);
     bodyName = bodyName.toLowerCase();
-    bodyFound = false;
+    var bodyFound = false;
     bodies.forEach(body => {
         //console.log(body.englishName.toLowerCase());
         if (!bodyFound && body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
