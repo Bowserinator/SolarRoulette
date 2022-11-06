@@ -40,6 +40,9 @@ getData().catch(error =>{
 });
 
 function displayBody(body){
+    window.currentBody = body;
+    if (window.onChangeBody)
+        window.onChangeBody(body);
 
     
     prevBody = body;
@@ -64,41 +67,19 @@ function displayBody(body){
     let radius_string;
     console.log('radius is ', radius);
 
-    if(radius>earthRadius){
-        ratio=(radius/earthRadius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio).toLocaleString();
-        vol_string='You can fit ≈ '+ratio+' Earths in '+name+'.';
-        
-    }
-    else if(radius<earthRadius){
-        ratio=(earthRadius/radius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio).toLocaleString();
-
-        vol_string='You can fit ≈ '+ratio+' of '+name +' in  Earth.';
-    }
-    else{
-        ratio=(earthRadius/radius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio).toLocaleString();
-
-        vol_string='You can fit ≈ '+ratio+' of '+name +' in  Earth.';
-    }
-
     if(radius!=0){
         if(radius>earthRadius){
             ratio=(radius/earthRadius)**3;
             console.log(ratio);
             ratio=Math.round(ratio);
-            vol_string='You can fit '+ratio+' Earth in '+name+'.\n';
+            vol_string='You can fit '+ratio+' Earth(s) in '+name+'.\n';
         }
         else {
             ratio=(earthRadius/radius)**3;
             console.log(ratio);
             ratio=Math.round(ratio);
     
-            vol_string='You can fit '+ratio+' '+name +' in  Earth.\n';
+            vol_string="You can fit "+ratio+" '"+name +"' in  Earth.\n";
         }
 
         document.getElementById('volumeComparison').textContent = vol_string;
@@ -290,6 +271,15 @@ function getSun(){
 function getBody(bodyName) {
     console.log(bodyName);
     bodyName = bodyName.toLowerCase();
+    bodyFound = false;
+    bodies.forEach(body => {
+        //console.log(body.englishName.toLowerCase());
+        if (!bodyFound && body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
+            displayBody(body);
+            bodyFound = true;
+        }
+    });
+    if (bodyFound) return;
     bodies.forEach(body => {
         //console.log(body.englishName.toLowerCase());
         if (body.englishName.toLowerCase().includes(bodyName) || body.id.toLowerCase().includes(bodyName) || body.name.toLowerCase().includes(bodyName)){
@@ -306,3 +296,28 @@ function searchBody() {
     getBody(bodyName);
     return false;
 }
+
+
+function switchToSky() {
+    const ca = document.getElementById('sky-canvas');
+    const cb = document.getElementById('myCanvas');
+    ca.style.visibility = 'visible';
+    cb.style.visibility = 'hidden';
+}
+
+function switchToSize() {
+    const ca = document.getElementById('sky-canvas');
+    const cb = document.getElementById('myCanvas');
+    ca.style.visibility = 'hidden';
+    cb.style.visibility = 'visible';
+}
+
+window.addEventListener('resize', onWindowResize, false);
+function onWindowResize(){
+    const cb = document.getElementById('myCanvas');
+    cb.width = 1000;
+    cb.height = Math.round(cb.offsetHeight / cb.offsetWidth * 1000);
+    displayBody(window.currentBody);
+}
+
+onWindowResize();

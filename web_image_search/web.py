@@ -9,7 +9,7 @@ import json
 
 f = open('planets.json', "r")
 data = json.load(f)["bodies"]
-driver = webdriver.Chrome("C:\\2022Fall\hackrpi\chromedriver.exe")
+driver = webdriver.Chrome("./chromedriver.exe")
 output = dict()
 
 for i in data:
