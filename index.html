@@ -51,8 +51,9 @@
         </script>
     </head>
     <body>
-        <div class="container pt-3">
-            <h1 class="title text-light p-2 text-center">Solar System App</h1>
+        <div class="container pt-0">
+            <h1 class="title text-light p-2 text-center mb-0">Solar System App</h1>
+            <h3 class="text-light h4 text-center bt-0">Click to view a random celestial body in the solar system</h3>
 
             <div class="btn-group centered-buttons">
                 <button class="btn-lg d-block" onclick="getRandomBody()">Any Body</button>
@@ -66,7 +67,7 @@
 
             <div class="line"></div>
             <div >
-                <label for="city" class="form-label h2 text-light my-3">Enter a celestial body in our solar system:</label>
+                <label for="city" class="form-label text-light mt-0">Enter a celestial body in our solar system:</label>
                 <form class="form-inline" id="addForm" name="addForm" action="#" method="post" onsubmit="return searchBody();">
                     <div class="d-flex">
                         <input autocomplete="off"
