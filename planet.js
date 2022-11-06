@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    $.getJSON("./imgdata.json", function(data){
+        idata = data;
+    })
+});
+
 async function getData(){
     api_key = 'zEsyctgqv7GuG9zfr5IZLA==1fYgWoEeJCtcP5vq';
     data_url = 'https://api.le-systeme-solaire.net/rest/bodies/';
@@ -38,16 +44,12 @@ function displayBody(body){
     if (window.onChangeBody)
         window.onChangeBody(body);
 
-     $.getJSON("./imgdata.json", function(data){
-         $.each(data,function(key,value){
-             if (key == body.englishName){
-                 document.getElementsByClassName("card-img")[0].src = value;
-             }
-         })
-     })
     
     prevBody = body;
     let name = body.englishName;
+
+    document.getElementsByClassName("card-img")[0].src = idata[name];
+
     let discoveredBy;
     let discoveryDate;
     let bodyType=body.bodyType.toLowerCase();
@@ -269,15 +271,18 @@ function getSun(){
 function getBody(bodyName) {
     console.log(bodyName);
     bodyName = bodyName.toLowerCase();
+    bodyFound = false;
+    bodies.forEach(body => {
+        //console.log(body.englishName.toLowerCase());
+        if (!bodyFound && body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
+            displayBody(body);
+            bodyFound = true;
+        }
+    });
+    if (bodyFound) return;
     bodies.forEach(body => {
         //console.log(body.englishName.toLowerCase());
         if (body.englishName.toLowerCase().includes(bodyName) || body.id.toLowerCase().includes(bodyName) || body.name.toLowerCase().includes(bodyName)){
-            displayBody(body);
-        }
-    });
-    bodies.forEach(body => {
-        //console.log(body.englishName.toLowerCase());
-        if (body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
             displayBody(body);
         }
     });
