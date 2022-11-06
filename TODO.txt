@@ -1,0 +1,4 @@
+tab the buttons at the top
+- favicon
+- social meta tags 
+- mobile sizing

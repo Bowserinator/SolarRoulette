@@ -8,7 +8,6 @@ body {
 }
 
 #myCanvas {
-    border: 3px solid #666; /*rgb(212, 165, 11);*/
     margin-left: 0;
     margin-right: 0;
     width: 100%;
@@ -77,6 +76,7 @@ button:hover {
 input[type="text"] {
     background-color: transparent;
     border: 1px solid #777;
+    color: #ccc;
 }
 
 input[type="text"]:focus {
@@ -92,7 +92,6 @@ input[type="text"]:focus {
 
 .card-img{
   object-fit: cover;
-  border: 3px solid #666;
   height: 350px;
   width: auto;
 }
