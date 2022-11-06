@@ -32,15 +32,22 @@ async function getData(){
 
     prevBody = bodies[243];
     //getRandomPlanet();
-    getBody("moon");
-    window.addEventListener('resize', onWindowResize, false);
-    function onWindowResize(){
-        const cb = document.getElementById('myCanvas');
-        cb.width = 1000;
-        cb.height = Math.round(cb.offsetHeight / cb.offsetWidth * 1000);
-        displayBody(window.currentBody);
-    }
-    onWindowResize();
+    
+    let temp = setInterval(() => {
+        if (!window.onChangeBody || !window.onChangeBody())
+            return;
+        clearInterval(temp);
+
+        getBody("moon");
+        window.addEventListener('resize', onWindowResize, false);
+        function onWindowResize(){
+            const cb = document.getElementById('myCanvas');
+            cb.width = 1000;
+            cb.height = Math.round(cb.offsetHeight / cb.offsetWidth * 1000);
+            displayBody(window.currentBody);
+        }
+        onWindowResize();
+    }, 50);
 
 }
 getData().catch(error =>{
@@ -52,7 +59,6 @@ function displayBody(body){
     window.currentBody = body;
     if (window.onChangeBody)
         window.onChangeBody(body);
-
     
     prevBody = body;
     let name = body.englishName;

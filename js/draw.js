@@ -29,17 +29,17 @@ scene.background = new THREE.Color('black');
 const camera = new THREE.PerspectiveCamera(40, base.innerWidth / base.innerHeight, 1, 100000);
 const controls = new OrbitControls( camera, renderer.domElement );
 
+camera.position.set( 0, 0, 100 );
 controls.minDistance = 1;
 controls.maxDistance = 100;
 
 // Look at moon initially
+controls.minAzimuthAngle = Math.PI; // radians
 controls.maxAzimuthAngle = Math.PI; // radians
 controls.update();
 
 controls.minAzimuthAngle = Math.PI - Math.PI / 4; // radians
 controls.maxAzimuthAngle = Math.PI + Math.PI / 4; // radians
-
-camera.position.set( 0, 0, 100 );
 controls.update();
 
 // Bloom + effects
@@ -185,6 +185,9 @@ function createPlanet(size, img, override=[-1, -1]) {
 }
 
 window.onChangeBody = body => {
+    if (!skyMesh) return false;
+    if (!body) return true;
+
     planets.forEach(p => scene.remove(p.mesh));
     planets = [];
     isSun = false;
@@ -240,13 +243,13 @@ window.onChangeBody = body => {
             break;
         default:
             if (body.meanRadius < 100000 && body.meanRadius > 200) {
-                console.log(body);
                 createPlanet(body.meanRadius, image[body.englishName]);
             }
             break;
     }
 
     onWindowResize();
+    return true;
 };
 
 // Rendering
