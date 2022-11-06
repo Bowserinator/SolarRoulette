@@ -270,6 +270,10 @@ function getRandomDwarf(){
     displayBody(body);
 }
 
+function getSun(){
+    displayBody(bodies[242]);
+}
+
 function getBody(bodyName) {
     console.log(bodyName);
     bodyName = bodyName.toLowerCase();
