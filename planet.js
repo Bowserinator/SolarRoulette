@@ -38,14 +38,13 @@ function displayBody(body){
     if (window.onChangeBody)
         window.onChangeBody(body);
 
-    // let idata;
-    // $.getJSON("./imgdata.json", function(data){
-    //     $.each(data,function(key,value){
-    //         if (key == body.englishName){
-    //             document.getElementById("bimg").src = value;
-    //         }
-    //     })
-    // })
+     $.getJSON("./imgdata.json", function(data){
+         $.each(data,function(key,value){
+             if (key == body.englishName){
+                 document.getElementsByClassName("card-img")[0].src = value;
+             }
+         })
+     })
     
     prevBody = body;
     let name = body.englishName;
@@ -131,6 +130,8 @@ function displayBody(body){
 
     if (discoveredString){
         document.getElementById('discover').innerHTML = discoveredString;
+    } else {
+        document.getElementById('discover').innerHTML = "";
     }
     
     bodyTypeString=' is';
