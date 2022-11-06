@@ -29,9 +29,6 @@ async function getData(){
             dwarfs.splice(dwarfs.length, 0, body);
         }
     });
-
-    prevBody = bodies[243];
-    //getRandomPlanet();
     
     let temp = setInterval(() => {
         if (!window.onChangeBody || !window.onChangeBody())
