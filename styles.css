@@ -88,3 +88,7 @@ input[type="text"]:focus {
     color: white;
 }
 
+.card-img{
+  object-fit: cover;
+   border: 12px solid rgb(212, 165, 11);
+}

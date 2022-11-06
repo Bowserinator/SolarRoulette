@@ -35,14 +35,13 @@ getData().catch(error =>{
 
 function displayBody(body){
 
-    // let idata;
-    // $.getJSON("./imgdata.json", function(data){
-    //     $.each(data,function(key,value){
-    //         if (key == body.englishName){
-    //             document.getElementById("bimg").src = value;
-    //         }
-    //     })
-    // })
+     $.getJSON("./imgdata.json", function(data){
+         $.each(data,function(key,value){
+             if (key == body.englishName){
+                 document.getElementsByClassName("card-img")[0].src = value;
+             }
+         })
+     })
     
     prevBody = body;
     let name = body.englishName;
