@@ -8,7 +8,7 @@ body {
 }
 
 #myCanvas {
-    border: 1px solid #666; /*rgb(212, 165, 11);*/
+    border: 3px solid #666; /*rgb(212, 165, 11);*/
     margin-left: 0;
     margin-right: 0;
     max-width: 100%;
@@ -90,5 +90,11 @@ input[type="text"]:focus {
 
 .card-img{
   object-fit: cover;
-   border: 12px solid rgb(212, 165, 11);
+  border: 3px solid #666;
+  height: 350px;
+  width: auto;
+}
+
+.card {
+  border: none;
 }
