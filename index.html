@@ -79,8 +79,17 @@
             <br>
 
             <div class="row">
-                <div class="col-8" id="canvas-container">
-                    <canvas id="myCanvas" width="860px" height="500px"></canvas>
+                <div class="col-8">
+                    <div class="btn-group d-flex">
+                        <button class="btn-sm d-block" onclick="switchToSky()">Sky View</button>
+                        <button class="btn-sm d-block" onclick="switchToSize()">Size Comparison</button>
+                    </div>
+                    <div id="canvas-container">
+                        <canvas id="myCanvas" width="860px" height="500px"></canvas>
+                    </div>
+                    <small class="text-secondary mt-3 d-block">The sky view is rendered if the celestial object were to be at the same distance from earth as our moon and is
+                        accurately sized to what you would see in the night sky.
+                    </small>
                 </div>
                 <div class="col-4 planet-info-box">
                     <p class="d-inline text-danger" id="name"></p>
@@ -96,14 +105,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="btn-group d-flex">
-                <button class="btn-lg d-block" onclick="switchToSky()">Sky View</button>
-                <button class="btn-lg d-block" onclick="switchToSize()">Size Comparison</button>
-            </div>
-            <small class="text-secondary mt-3 d-block">The sky view is rendered if the celestial object were to be at the same distance from earth as our moon and is
-                accurately sized to what you would see in the night sky.
-            </small>
         </div>
         <br>
 
