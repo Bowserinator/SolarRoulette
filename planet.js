@@ -333,6 +333,10 @@ function doAutocomplete() {
 function switchToSky() {
     const ca = document.getElementById('sky-canvas');
     const cb = document.getElementById('myCanvas');
+    const tab1 = document.getElementById('tab1');
+    const tab2 = document.getElementById('tab2');
+    tab2.classList.remove('tab-select');
+    tab1.classList.add('tab-select');
     ca.style.visibility = 'visible';
     cb.style.visibility = 'hidden';
 }
@@ -340,6 +344,10 @@ function switchToSky() {
 function switchToSize() {
     const ca = document.getElementById('sky-canvas');
     const cb = document.getElementById('myCanvas');
+    const tab1 = document.getElementById('tab1');
+    const tab2 = document.getElementById('tab2');
+    tab1.classList.remove('tab-select');
+    tab2.classList.add('tab-select');
     ca.style.visibility = 'hidden';
     cb.style.visibility = 'visible';
 }

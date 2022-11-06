@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(0, 0, 15);
+    background-color: rgb(0, 0, 0);
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -124,4 +124,13 @@ input[type="text"]:focus {
 #search-autocomplete > li:hover {
     background-color: #222;
     cursor: pointer;
+}
+
+.tab {
+    color: #777;
+}
+
+.tab-select {
+    background-color: white;
+    color: black;
 }
