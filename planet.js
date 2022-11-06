@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    $.getJSON("./imgdata.json", function(data){
+        idata = data;
+    })
+});
+
 async function getData(){
     api_key = 'zEsyctgqv7GuG9zfr5IZLA==1fYgWoEeJCtcP5vq';
     data_url = 'https://api.le-systeme-solaire.net/rest/bodies/';
@@ -35,16 +41,12 @@ getData().catch(error =>{
 
 function displayBody(body){
 
-     $.getJSON("./imgdata.json", function(data){
-         $.each(data,function(key,value){
-             if (key == body.englishName){
-                 document.getElementsByClassName("card-img")[0].src = value;
-             }
-         })
-     })
     
     prevBody = body;
     let name = body.englishName;
+
+    document.getElementsByClassName("card-img")[0].src = idata[name];
+
     let discoveredBy;
     let discoveryDate;
     let bodyType=body.bodyType.toLowerCase();
