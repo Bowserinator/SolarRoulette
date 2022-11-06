@@ -88,18 +88,6 @@ input[type="text"]:focus {
     color: white;
 }
 
-<<<<<<< HEAD
 #canvas-container {
     position: relative;
-=======
-.card-img{
-  object-fit: cover;
-  border: 3px solid #666;
-  height: 350px;
-  width: auto;
-}
-
-.card {
-  border: none;
->>>>>>> 831df2b96986f94773035b56591a3d14f45da981
 }
