@@ -91,10 +91,12 @@
                 <div class="col-8">
                     <div >
                         <label for="city" class="form-label text-light mt-0">Search for a celestial body in our solar system:</label>
-                        <form class="form-inline" id="addForm" name="addForm" action="#" method="post" onsubmit="return searchBody();">
+                        <form class="form-inline"
+                                style="max-width: 100%"
+                                id="addForm" name="addForm" action="#" method="post" onsubmit="return searchBody();">
                             <div class="d-flex" style="position: relative">
                                 <input autocomplete="off"
-                                    onkeydown="doAutocomplete()"
+                                    onkeydown="doAutocomplete()" onblur="clearAutocomplete()" onfocusout="clearAutocomplete()"
                                     type="text" placeholder="e.g. Jupiter" class="input_text form-control" id="searchBar">
                                 <button id="submit">Search</button>
                                 <ol id="search-autocomplete">

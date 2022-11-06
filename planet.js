@@ -316,6 +316,13 @@ function searchBody() {
     return false;
 }
 
+function clearAutocomplete() {
+    let bodyName = document.getElementById('searchBar').value.toLowerCase();
+    if (bodyName.length < 2) {
+        document.getElementById('search-autocomplete').style.display = 'none';
+    }
+}
+
 
 function doAutocomplete() {
     if (!bodies) return;
