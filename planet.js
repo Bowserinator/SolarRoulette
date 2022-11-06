@@ -34,6 +34,9 @@ getData().catch(error =>{
 });
 
 function displayBody(body){
+    window.currentBody = body;
+    if (window.onChangeBody)
+        window.onChangeBody(body);
 
      $.getJSON("./imgdata.json", function(data){
          $.each(data,function(key,value){
@@ -282,3 +285,28 @@ function searchBody() {
     getBody(bodyName);
     return false;
 }
+
+
+function switchToSky() {
+    const ca = document.getElementById('sky-canvas');
+    const cb = document.getElementById('myCanvas');
+    ca.style.visibility = 'visible';
+    cb.style.visibility = 'hidden';
+}
+
+function switchToSize() {
+    const ca = document.getElementById('sky-canvas');
+    const cb = document.getElementById('myCanvas');
+    ca.style.visibility = 'hidden';
+    cb.style.visibility = 'visible';
+}
+
+window.addEventListener('resize', onWindowResize, false);
+function onWindowResize(){
+    const cb = document.getElementById('myCanvas');
+    cb.width = 1000;
+    cb.height = Math.round(cb.offsetHeight / cb.offsetWidth * 1000);
+    displayBody(window.currentBody);
+}
+
+onWindowResize();
