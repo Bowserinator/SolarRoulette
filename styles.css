@@ -1,6 +1,8 @@
 body {
     background-color: rgb(0, 0, 0);
     font-family: 'Roboto Condensed', sans-serif;
+    transform-origin: top center;
+    transform: scale(85%);
 }
 
 * {

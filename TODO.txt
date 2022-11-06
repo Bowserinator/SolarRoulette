@@ -1,5 +1,4 @@
-- favicon
-- social meta tags 
+default zoom out?
 
 - write readme
 - make video
