@@ -1,9 +1,3 @@
-$(document).ready(function(){
-    $.getJSON("./imgdata.json", function(data){
-        idata = data;
-    })
-});
-
 let lastSpin = 0;
 
 function spin() {
@@ -16,11 +10,6 @@ function spin() {
 }
 
 async function getData(){
-    api_key = 'zEsyctgqv7GuG9zfr5IZLA==1fYgWoEeJCtcP5vq';
-    data_url = 'https://api.le-systeme-solaire.net/rest/bodies/';
-    let data = await fetch(data_url);
-    let json_data = await data.json();
-    bodies = json_data.bodies;
     planets = [];
     moons = [];
     dwarfs = [];

@@ -4,7 +4,6 @@ import { EffectComposer } from 'https://unpkg.com/three@0.146.0/examples/jsm/pos
 import { UnrealBloomPass } from 'https://unpkg.com/three@0.146.0/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { RenderPass } from 'https://unpkg.com/three@0.146.0/examples/jsm/postprocessing/RenderPass.js';
 import { AfterimagePass } from 'https://unpkg.com/three@0.146.0/examples/jsm/postprocessing/AfterimagePass.js';
-import image from '../imgdata.json' assert {type: 'json'};
 
 // Sim parameters
 const CELESTIAL_SPHERE = 1200; // Radius of stars
