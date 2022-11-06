@@ -4,6 +4,17 @@ $(document).ready(function(){
     })
 });
 
+let lastSpin = 0;
+
+function spin() {
+    document.getElementById('logo').classList.add('spin');
+    lastSpin = Date.now();
+    setTimeout(() => {
+        if (Date.now() - lastSpin > 900)
+            document.getElementById('logo').classList.remove('spin');
+    }, 1000);
+}
+
 async function getData(){
     api_key = 'zEsyctgqv7GuG9zfr5IZLA==1fYgWoEeJCtcP5vq';
     data_url = 'https://api.le-systeme-solaire.net/rest/bodies/';
@@ -199,6 +210,7 @@ function displayBody(body){
 }
 
 function getRandomBody(){
+    spin();
     i=Math.floor(Math.random() * bodies.length);
     let body = bodies[i];
     while (body.id == prevBody.id) {
@@ -210,6 +222,7 @@ function getRandomBody(){
 }
 
 function getRandomPlanet(){
+    spin();
     i=Math.floor(Math.random() * planets.length);
     let planet = planets[i];
     while (planet.id == prevBody.id) {
@@ -221,6 +234,7 @@ function getRandomPlanet(){
 }
 
 function getRandomMoon(){
+    spin();
     i=Math.floor(Math.random() * moons.length);
     let body = moons[i];
     while (body.id == prevBody.id) {
@@ -232,6 +246,7 @@ function getRandomMoon(){
 }
 
 function getRandomAsteroid(){
+    spin();
     i=Math.floor(Math.random() * asteroids.length);
     let body = asteroids[i];
     while (body.id == prevBody.id) {
@@ -243,6 +258,7 @@ function getRandomAsteroid(){
 }
 
 function getRandomComet(){
+    spin();
     i=Math.floor(Math.random() * comets.length);
     let body = comets[i];
     while (body.id == prevBody.id) {
@@ -254,6 +270,7 @@ function getRandomComet(){
 }
 
 function getRandomDwarf(){
+    spin();
     i=Math.floor(Math.random() * dwarfs.length);
     let body = dwarfs[i];
     while (body.id == prevBody.id) {

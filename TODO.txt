@@ -1,3 +1,11 @@
 - favicon
 - social meta tags 
-- mobile sizing
+
+- make a logo
+    when you click random the roulette spins
+
+-loading indicator + hide image when loading
+
+- write readme
+- make video
+

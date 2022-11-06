@@ -134,3 +134,18 @@ input[type="text"]:focus {
     background-color: white;
     color: black;
 }
+
+.logo {
+    height: 40pt;
+    position: relative;
+    top: -4px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.logo.spin {
+    animation: spin 1s infinite;
+}
