@@ -1,3 +1,7 @@
 - favicon
 - social meta tags 
-- mobile sizing
+
+- write readme
+- make video
+
+- download images

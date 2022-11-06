@@ -4,6 +4,17 @@ $(document).ready(function(){
     })
 });
 
+let lastSpin = 0;
+
+function spin() {
+    document.getElementById('logo').classList.add('spin');
+    lastSpin = Date.now();
+    setTimeout(() => {
+        if (Date.now() - lastSpin > 900)
+            document.getElementById('logo').classList.remove('spin');
+    }, 1000);
+}
+
 async function getData(){
     api_key = 'zEsyctgqv7GuG9zfr5IZLA==1fYgWoEeJCtcP5vq';
     data_url = 'https://api.le-systeme-solaire.net/rest/bodies/';
@@ -90,7 +101,7 @@ function displayBody(body){
             console.log(ratio);
             ratio=Math.round(ratio);
     
-            vol_string="You can fit "+ratio+" '"+name +"' in  Earth.\n";
+            vol_string="You can fit "+ratio+" of '"+name +"' in  Earth.\n";
         }
 
         document.getElementById('volumeComparison').textContent = vol_string;
@@ -222,6 +233,7 @@ function displayBody(body){
 }
 
 function getRandomBody(){
+    spin();
     let i=Math.floor(Math.random() * bodies.length);
     let body = bodies[i];
     while (body.id == prevBody.id) {
@@ -233,6 +245,7 @@ function getRandomBody(){
 }
 
 function getRandomPlanet(){
+    spin();
     let i=Math.floor(Math.random() * planets.length);
     let planet = planets[i];
     while (planet.id == prevBody.id) {
@@ -244,6 +257,7 @@ function getRandomPlanet(){
 }
 
 function getRandomMoon(){
+    spin();
     let i=Math.floor(Math.random() * moons.length);
     let body = moons[i];
     while (body.id == prevBody.id) {
@@ -255,6 +269,7 @@ function getRandomMoon(){
 }
 
 function getRandomAsteroid(){
+    spin();
     let i=Math.floor(Math.random() * asteroids.length);
     let body = asteroids[i];
     while (body.id == prevBody.id) {
@@ -266,6 +281,7 @@ function getRandomAsteroid(){
 }
 
 function getRandomComet(){
+    spin();
     let i=Math.floor(Math.random() * comets.length);
     let body = comets[i];
     while (body.id == prevBody.id) {
@@ -277,6 +293,7 @@ function getRandomComet(){
 }
 
 function getRandomDwarf(){
+    spin();
     let i=Math.floor(Math.random() * dwarfs.length);
     let body = dwarfs[i];
     while (body.id == prevBody.id) {
@@ -391,4 +408,9 @@ function switchToSize() {
     tab2.classList.add('tab-select');
     ca.style.visibility = 'hidden';
     cb.style.visibility = 'visible';
+}
+
+function loadEverything() {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('card-img').style.display = 'block';
 }

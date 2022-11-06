@@ -14,6 +14,14 @@
                 
         <link rel="stylesheet" href="styles.css">
 
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
         <!-- 3D stuff -->
         <script type="importmap">
             {
@@ -52,7 +60,8 @@
     </head>
     <body>
         <div class="container pt-0">
-            <h1 class="title text-light p-2 text-center mb-0">Solar Roulette</h1>
+            <h1 class="title text-light p-2 text-center mb-0">
+                <img src="img/logo.png" id="logo" class="logo"> Solar Roulette</h1>
             <h3 class="text-light h4 text-center bt-0">Click to view a random celestial body in the solar system</h3>
 
             <div class="btn-group centered-buttons">
@@ -107,12 +116,19 @@
                     
 
                     <div class="card mt-3 border-light" id="img_box">
-                        <img class="card-img" src="" alt="Card image">
+                        <img class="card-img" id="card-img" src="" style="display:none" onload="loadEverything()" alt="Card image">
                     </div>
                 </div>
             </div>
         </div>
         <br>
+
+        <div id="loading" class="loading text-center">
+            <div class="centered-loading">
+                <h1>Loading data...</h1>
+                <div id="loading-indicator"></div>
+            </div>
+        </div>
 
         <script src="planet.js"></script>
         <script src="js/draw.js" type="module"></script>
