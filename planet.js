@@ -71,7 +71,7 @@ function displayBody(body){
     let massValue;
     let massExponent;
     let radius = body.meanRadius;
-    console.log('radius is ', radius);
+
     let earthRadius = 6371.0084;
     let discoveredString;
     let ratio;
@@ -79,18 +79,14 @@ function displayBody(body){
     let radius_string;
     let aroundPlanet;
 
-    console.log('radius is ', radius);
-
     if(radius!=0){
         if(radius>earthRadius){
             ratio=(radius/earthRadius)**3;
-            console.log(ratio);
             ratio=Math.round(ratio);
             vol_string='You can fit '+ratio.toLocaleString()+' Earth(s) in '+name+'.\n';
         }
         else {
             ratio=(earthRadius/radius)**3;
-            console.log(ratio);
             ratio=Math.round(ratio);
     
             vol_string="You can fit "+ratio.toLocaleString()+" of '"+name +"' in  Earth.\n";
@@ -98,7 +94,6 @@ function displayBody(body){
 
         document.getElementById('volumeComparison').textContent = vol_string;
         radius_string= 'The mean radius of '+name+' is '+radius.toLocaleString()+' km.';
-        console.log('radisu is ', radius);
         document.getElementById('radius').textContent = radius_string;
     } else {
         document.getElementById('volumeComparison').textContent = "";
@@ -113,11 +108,6 @@ function displayBody(body){
         // Swap M/D for US format
         [discoveryDate[0], discoveryDate[1]] = [discoveryDate[1], discoveryDate[0]];
         discoveryDate = discoveryDate.join('/');
-
-        console.log('hhhhh');
-        console.log(discoveredBy);
-        console.log(discoveryDate);
-        console.log('hhhhh');
         discoveredString= 'It was discovered on <span class="text-primary">' + discoveryDate +
             '</span> by <span class="text-primary">'+ discoveredBy+'</span>.';
     }
@@ -136,14 +126,10 @@ function displayBody(body){
         bodyTypeString+=' a '+ bodyType;
     }
 
-    console.log(bodyTypeString);
     bodyTypeString+='.';
-    console.log(bodyTypeString);
 
-    console.log('the bodytype is: ',bodyType);
     if(bodyType=='moon'){
         aroundPlanet=body.aroundPlanet.planet;
-        console.log(aroundPlanet);
         englishNamePlanet=getEnglishName(aroundPlanet);
         document.getElementById('aroundPlanet').innerHTML = "It's a moon of "+englishNamePlanet+". ";
     } else {
@@ -159,8 +145,6 @@ function displayBody(body){
         massExponent = body.mass.massExponent;
         mass_string = ` It has a mass of ${massValue.toLocaleString()} x 10<sup>${massExponent}</sup> kg.`;
     }
-
-    console.log(name);
     
     document.getElementById('name').textContent = name;
     document.getElementById('bodyType').textContent = bodyTypeString ;
@@ -212,7 +196,6 @@ function displayBody(body){
         ctx.moveTo((700)-rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)-rad*1.5*Math.cos(axialTilt*Math.PI/180));
         ctx.lineTo((700)+rad*1.5*Math.sin(axialTilt*Math.PI/180), (300)+rad*1.5*Math.cos(axialTilt*Math.PI/180));
         ctx.stroke();
-        console.log(Math.sin(axialTilt*Math.PI/180));
 
         ctx.beginPath();
         ctx.arc(700, 300, rad, 0, 2 * Math.PI);
@@ -232,7 +215,6 @@ function getRandomBody(){
         i=Math.floor(Math.random() * bodies.length);
         body = bodies[i];
     }
-    console.log(i);
     displayBody(body);
 }
 
@@ -244,7 +226,6 @@ function getRandomPlanet(){
         i=Math.floor(Math.random() * planets.length);
         planet = planets[i];
     }
-    console.log(i);
     displayBody(planet);
 }
 
@@ -256,7 +237,6 @@ function getRandomMoon(){
         i=Math.floor(Math.random() * moons.length);
         body = moons[i];
     }
-    console.log(i);
     displayBody(body);
 }
 
@@ -268,7 +248,6 @@ function getRandomAsteroid(){
         i=Math.floor(Math.random() * asteroids.length);
         body = asteroids[i];
     }
-    console.log(i);
     displayBody(body);
 }
 
@@ -280,7 +259,6 @@ function getRandomComet(){
         i=Math.floor(Math.random() * comets.length);
         body = comets[i];
     }
-    console.log(i);
     displayBody(body);
 }
 
@@ -292,7 +270,6 @@ function getRandomDwarf(){
         i=Math.floor(Math.random() * dwarfs.length);
         body = dwarfs[i];
     }
-    console.log(i);
     displayBody(body);
 }
 
@@ -301,15 +278,10 @@ function getSun(){
 }
 
 
-
-
-
 function getBody(bodyName) {
-    console.log(bodyName);
     bodyName = bodyName.toLowerCase();
     var bodyFound = false;
     bodies.forEach(body => {
-        //console.log(body.englishName.toLowerCase());
         if (!bodyFound && body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
             displayBody(body);
             bodyFound = true;
@@ -317,7 +289,6 @@ function getBody(bodyName) {
     });
     if (bodyFound) return;
     bodies.forEach(body => {
-        //console.log(body.englishName.toLowerCase());
         if (body.englishName.toLowerCase().includes(bodyName) || body.id.toLowerCase().includes(bodyName) || body.name.toLowerCase().includes(bodyName)){
             displayBody(body);
         }
@@ -327,8 +298,6 @@ function getBody(bodyName) {
 
 
 function getEnglishName(bodyName){
-    console.log('sssss');
-    console.log(bodyName);
     bodyName = bodyName.toLowerCase();
 
     for (let body of bodies) {

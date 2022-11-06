@@ -8,11 +8,10 @@ Our group likes to appreciate the vastness of space. So we wanted other people t
 Solar Roulette allows users to explore a myriad of celestial bodies in our home star system by allowing users to search or randomly find bodies. They can then see information about it as well as visualize how it would look if the moon were replaced by the body in question. We also offer a size comparison with to the earth so you can truly appreciate the scale of the cosmos.
 
 ## How we built it
-Solar Roulette was built with THREE.js, The Solar System OpenData API, bootstrap, selenium, and HTML canvas to create a website hosted on Domain.com. First, we made a prototype in basic HTML and CSS while other team members worked on a 3d render and a web scaper to gather images. Then, we combined all the parts and polished up the interface.
+Solar Roulette was built with THREE.js, The Solar System OpenData API, bootstrap, selenium, and HTML canvas to create a website hosted on Domain.com. First, we made a prototype in basic HTML and CSS while other team members worked on a 3d render and a web scraper to gather images. Then, we combined all the parts and polished up the interface.
 
 ## Challenges we ran into
 We ran in to many bugs involving rendering glitches as well as performance issues when loading. Also, some of the images found by the webscaper were inaccurate, so we had to go through and replace them manually. Finally, there were some browser specific issues with Firefox, as it did not implement a crucial feature, which we were able to resolve via polyfill.
-There was plenty of debugging along the way as a result of strange collisions from the physics engine. Not to mention that some seemingly simple problems ended up being rather complicated, such as ensuring the bucket counts stayed consistent when blocks were combined, or the red-ish lines bordering the blocks. By far our largest challenge was using Domain.com to host the app, which ended up requiring many expert opinions and visual compromises to get functioning.
 
 ## Accomplishments that we're proud of
 We are proud of the fact that we managed to complete a website within the4 time limit, despite having little experience with web design.
