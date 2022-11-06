@@ -172,7 +172,6 @@ function createPlanet(size, img, override=[-1, -1]) {
     const planetMesh = new THREE.Mesh(objGeometry, objMaterial);
     // planetMesh.rotation.y = ([{ size: 0 }].concat(planets)).map(p => p.size + 0.1).reduce((a, b) => a + b);
     planetMesh.position.y = 300 - height * 0.2;
-    console.log(planetMesh.position.y)
     scene.add(planetMesh);
 
     planets.push({
@@ -241,10 +240,15 @@ window.onChangeBody = body => {
         case "136199 Eris":
             createPlanet(1163, 'eris.png');
             break;
+            case "136199 Eris":
+                createPlanet(1163, 'eris.png');
+                break;
         default:
             ambientLight.intensity = AMBIENT_LIGHT_INTENSITY;
-            if (body.meanRadius < 100000 && body.meanRadius > 200) {
+            if (body.meanRadius < 100000 && body.meanRadius > 100) {
                 createPlanet(body.meanRadius, `web/${body.id}.png`);
+            } else if (body.meanRadius > 50) {
+                createPlanet(400, 'glow.png');
             }
             break;
     }
