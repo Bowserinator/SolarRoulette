@@ -242,6 +242,7 @@ window.onChangeBody = body => {
             createPlanet(1163, 'eris.png');
             break;
         default:
+            ambientLight.intensity = AMBIENT_LIGHT_INTENSITY;
             if (body.meanRadius < 100000 && body.meanRadius > 200) {
                 createPlanet(body.meanRadius, image[body.englishName]);
             }
