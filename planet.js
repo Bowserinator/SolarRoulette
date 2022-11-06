@@ -63,6 +63,8 @@ function displayBody(body){
     let ratio;
     let vol_string;
     let radius_string;
+    let aroundPlanet;
+
     console.log('radius is ', radius);
 
     if(radius!=0){
@@ -124,6 +126,15 @@ function displayBody(body){
     bodyTypeString+='.';
     console.log(bodyTypeString);
 
+    console.log('the bodytype is: ',bodyType);
+    if(bodyType='moon'){
+        aroundPlanet=body.aroundPlanet.planet;
+        console.log(aroundPlanet);
+        englishNamePlanet=getEnglishName(aroundPlanet);
+        document.getElementById('aroundPlanet').innerHTML = "It's a moon of "+englishNamePlanet+". ";
+    }
+
+
     if (!body.mass){
         mass_string = '';
     }
@@ -132,6 +143,7 @@ function displayBody(body){
         massExponent = body.mass.massExponent;
         mass_string = ` It has a mass of ${massValue.toLocaleString()} x 10<sup>${massExponent}</sup> kg.`;
     }
+
     console.log(name);
     
     document.getElementById('name').textContent = name;
@@ -266,6 +278,10 @@ function getSun(){
     displayBody(bodies[242]);
 }
 
+
+
+
+
 function getBody(bodyName) {
     console.log(bodyName);
     bodyName = bodyName.toLowerCase();
@@ -285,6 +301,25 @@ function getBody(bodyName) {
         }
     });
 }
+
+
+
+function getEnglishName(bodyName){
+    console.log('sssss');
+    console.log(bodyName);
+    bodyName = bodyName.toLowerCase();
+
+    for (let body of bodies) {
+        if (body.id== bodyName){
+            return body.englishName;
+        }   
+    }
+}
+
+let earth= getEnglishName('terre');
+console.log('the earth is flat');
+console.log(earth);
+
 
 function searchBody() {
     var bodyName = document.getElementById('searchBar').value;
@@ -317,5 +352,6 @@ function onWindowResize(){
     cb.height = Math.round(cb.offsetHeight / cb.offsetWidth * 1000);
     displayBody(window.currentBody);
 }
+
 
 onWindowResize();
