@@ -65,35 +65,28 @@ function displayBody(body){
     let radius_string;
     console.log('radisu is ', radius);
 
-    if(radius>earthRadius){
-        ratio=(radius/earthRadius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio);
-        vol_string='You can fit '+ratio+' Earth in '+name+'.\n';
-        
-    }
-    else if(radius<earthRadius){
-        ratio=(earthRadius/radius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio);
-
-        vol_string='You can fit '+ratio+' '+name +' in  Earth.\n';
-    }
-    else{
-        ratio=(earthRadius/radius)**3;
-        console.log(ratio);
-        ratio=Math.round(ratio);
-
-        vol_string='You can fit '+ratio+' '+name +' in  Earth.\n';
-    }
-
     if(radius!=0){
+        if(radius>earthRadius){
+            ratio=(radius/earthRadius)**3;
+            console.log(ratio);
+            ratio=Math.round(ratio);
+            vol_string='You can fit '+ratio+' Earth in '+name+'.\n';
+        }
+        else {
+            ratio=(earthRadius/radius)**3;
+            console.log(ratio);
+            ratio=Math.round(ratio);
+    
+            vol_string='You can fit '+ratio+' '+name +' in  Earth.\n';
+        }
 
         document.getElementById('volumeComparison').textContent = vol_string;
         radius_string= 'The mean radius of '+name+' is '+radius+' km.\n';
         console.log('radisu is ', radius);
         document.getElementById('radius').textContent = radius_string;
-
+    } else {
+        document.getElementById('volumeComparison').textContent = "";
+        document.getElementById('radius').textContent = "";
     }
 
     if (body.discoveredBy!='' && body.discoveryDate!=''){
