@@ -63,7 +63,7 @@ function displayBody(body){
     prevBody = body;
     let name = body.englishName;
 
-    document.getElementsByClassName("card-img")[0].src = idata[name];
+    document.getElementsByClassName("card-img")[0].src = `./img/web/${body.id}.png`;
 
     let discoveredBy;
     let discoveryDate;

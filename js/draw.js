@@ -244,7 +244,7 @@ window.onChangeBody = body => {
         default:
             ambientLight.intensity = AMBIENT_LIGHT_INTENSITY;
             if (body.meanRadius < 100000 && body.meanRadius > 200) {
-                createPlanet(body.meanRadius, image[body.englishName]);
+                createPlanet(body.meanRadius, `web/${body.id}.png`);
             }
             break;
     }
