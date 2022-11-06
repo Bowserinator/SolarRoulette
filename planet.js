@@ -275,6 +275,12 @@ function getBody(bodyName) {
             displayBody(body);
         }
     });
+    bodies.forEach(body => {
+        //console.log(body.englishName.toLowerCase());
+        if (body.englishName.toLowerCase() == bodyName || body.id.toLowerCase()== bodyName || body.name.toLowerCase() == bodyName){
+            displayBody(body);
+        }
+    });
 }
 
 function searchBody() {
